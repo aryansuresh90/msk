@@ -1,0 +1,36 @@
+name: Nifty Paper Trading Engine
+
+on:
+  schedule:
+    # Every 15 min, 03:00-10:45 UTC, Mon-Fri -> wraps NSE hours (9:15-15:30 IST = 03:45-10:00 UTC)
+    # with a little margin. The script itself no-ops outside real market hours.
+    - cron: '*/15 3-10 * * 1-5'
+  workflow_dispatch: {}   # lets you trigger a manual test run from the Actions tab
+
+permissions:
+  contents: write   # needed so this workflow can commit the updated state back to the repo
+
+jobs:
+  run-cycle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run one paper-trading cycle
+        working-directory: scripts
+        run: python run_once.py
+
+      - name: Commit updated state
+        run: |
+          git config user.name "nifty-paper-engine"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/paper_state.json output/performance_metrics.json
+          git diff --quiet --cached || git commit -m "Cycle update $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git push
