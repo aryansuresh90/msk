@@ -24,6 +24,7 @@ credit card at https://aistudio.google.com/apikey.
 """
 import json
 import os
+import re
 import sys
 import time
 import xml.etree.ElementTree as ET
@@ -108,7 +109,10 @@ def fetch_rss_headlines(name, url):
     try:
         resp = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
         resp.raise_for_status()
-        root = ET.fromstring(resp.content)
+        # Some feeds occasionally include stray control characters that break
+        # strict XML parsing - strip anything outside the allowed XML char set.
+        cleaned = re.sub(rb"[\x00-\x08\x0B\x0C\x0E-\x1F]", b"", resp.content)
+        root = ET.fromstring(cleaned)
         now = datetime.now(timezone.utc)
         for item in root.findall(".//item")[:MAX_MACRO_HEADLINES_PER_FEED]:
             title_el = item.find("title")
@@ -161,16 +165,31 @@ def build_prompt(market_headlines, stock_headlines):
     return "\n".join(lines)
 
 
-def call_gemini(prompt, api_key):
+def call_gemini(prompt, api_key, max_attempts=4):
+    """Calls Gemini, retrying on transient server-side errors (503/overloaded,
+    429/rate-limited) with backoff - the free tier occasionally returns these
+    under load and a retry a few seconds later almost always succeeds."""
     body = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0.2},
     }
-    resp = requests.post(GEMINI_URL, params={"key": api_key}, json=body, timeout=60)
-    resp.raise_for_status()
-    data = resp.json()
-    text = data["candidates"][0]["content"]["parts"][0]["text"]
-    return json.loads(text)
+    last_err = None
+    for attempt in range(1, max_attempts + 1):
+        try:
+            resp = requests.post(GEMINI_URL, params={"key": api_key}, json=body, timeout=60)
+            if resp.status_code in (429, 500, 502, 503, 504):
+                raise requests.HTTPError(f"{resp.status_code} Server Error: {resp.reason}", response=resp)
+            resp.raise_for_status()
+            data = resp.json()
+            text = data["candidates"][0]["content"]["parts"][0]["text"]
+            return json.loads(text)
+        except Exception as e:
+            last_err = e
+            if attempt < max_attempts:
+                wait = 10 * attempt  # 10s, 20s, 30s
+                print(f"  Gemini call attempt {attempt} failed ({e}) - retrying in {wait}s...")
+                time.sleep(wait)
+    raise last_err
 
 
 def main():
