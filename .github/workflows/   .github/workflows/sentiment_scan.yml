@@ -1,0 +1,38 @@
+name: Nifty Sentiment Scan
+
+on:
+  schedule:
+    # Once an hour, offset 20 min from the trading engine's own schedule.
+    # 03:20-10:20 UTC -> roughly 08:50 AM-03:50 PM IST, wrapping market hours.
+    - cron: '20 3-10 * * 1-5'
+  workflow_dispatch: {}   # lets you trigger a manual test run from the Actions tab
+
+permissions:
+  contents: write   # needed so this workflow can commit sentiment.json back to the repo
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run sentiment scan
+        working-directory: scripts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python sentiment_scan.py
+
+      - name: Commit sentiment.json
+        run: |
+          git config user.name "nifty-sentiment-scan"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/sentiment.json
+          git diff --quiet --cached || git commit -m "Sentiment update $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git push
