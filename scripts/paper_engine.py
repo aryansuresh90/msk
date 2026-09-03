@@ -1,18 +1,16 @@
 """
-Nifty50 swing paper-trading engine — core logic.
+Nifty50 swing paper-trading engine — core logic. v2: trend/relative-strength
+filters, sector concentration cap, trailing stop + partial profit-taking,
+max holding period, and ntfy.sh push alerts on trade events.
 
-This module is shared by two entrypoints:
-  - main() below: a long-running loop, for running manually in a terminal
-    (e.g. `python3 paper_engine.py`). Not used by the GitHub Actions setup.
-  - run_once.py: a single-cycle entrypoint used by the GitHub Actions
-    workflow (.github/workflows/paper_engine.yml), which fires on a
-    schedule instead of looping.
+Shared by:
+  - main() below: a long-running loop, for manual/local use only.
+  - run_once.py: the single-cycle entrypoint GitHub Actions calls on a
+    schedule (.github/workflows/paper_engine.yml).
 
 No real orders are ever placed - everything here is simulated.
-All internal timestamps are UTC-aware (timezone.utc) for consistency
-regardless of which machine/server runs this. Market-hours checks use
-IST (Asia/Kolkata) explicitly, since that's what NSE trading hours are
-defined in - independent of the host machine's own local timezone.
+All internal timestamps are UTC-aware. Market-hours checks use IST
+(Asia/Kolkata) explicitly, independent of the host machine's timezone.
 """
 import json
 import warnings
@@ -22,6 +20,7 @@ from zoneinfo import ZoneInfo
 
 import numpy as np
 import pandas as pd
+import requests
 import yfinance as yf
 from cost_model import buy_side_cost, sell_side_cost, apply_slippage
 
@@ -38,7 +37,14 @@ METRICS_PATH = BASE / "output" / "performance_metrics.json"
 
 CAPITAL = 100_000.0          # fixed capital base you set
 RISK_PER_TRADE_PCT = 0.01    # 1% of capital max risk per trade
-MAX_OPEN_POSITIONS = 8       # simple diversification cap
+MAX_OPEN_POSITIONS = 8       # overall diversification cap
+SECTOR_MAX_POSITIONS = 2     # max simultaneous open positions per sector
+MAX_HOLD_DAYS = 10           # forced exit if a trade runs longer than this (this is a swing system, not a hold-forever one)
+BREAKEVEN_AT_ATR = 1.0       # move stop to breakeven once unrealised gain reaches this many ATRs
+TRAIL_START_ATR = 2.0        # start trailing the stop once gain reaches this many ATRs
+TRAIL_DISTANCE_ATR = 1.0     # trailing stop sits this many ATRs behind the current price
+PARTIAL_TAKE_ATR = 1.5       # book partial profit once gain reaches this many ATRs
+PARTIAL_TAKE_FRACTION = 0.5  # fraction of the position closed at the partial-profit point
 CYCLE_SECONDS = 5 * 60       # only used by the manual/local loop in main()
 SENTIMENT_STALE_HOURS = 2.5  # ignore sentiment file older than this
 
@@ -50,6 +56,40 @@ NIFTY50 = [
     "NTPC","ONGC","POWERGRID","RELIANCE","SBILIFE","SHRIRAMFIN","SBIN","SUNPHARMA","TCS",
     "TATACONSUM","TMPV","TATASTEEL","TECHM","TITAN","TRENT","ULTRACEMCO","WIPRO",
 ]
+
+# Rough sector groupings, used only to cap concentration - not exact GICS.
+SECTOR_MAP = {
+    "ADANIENT":"Conglomerate","ADANIPORTS":"Infra","APOLLOHOSP":"Healthcare","ASIANPAINT":"Consumer",
+    "AXISBANK":"Banking","BAJAJ-AUTO":"Auto","BAJFINANCE":"Financials","BAJAJFINSV":"Financials",
+    "BEL":"Industrials","BHARTIARTL":"Telecom","CIPLA":"Pharma","COALINDIA":"Energy","DRREDDY":"Pharma",
+    "EICHERMOT":"Auto","ETERNAL":"Consumer","GRASIM":"Cement","HCLTECH":"IT","HDFCBANK":"Banking",
+    "HDFCLIFE":"Insurance","HINDALCO":"Metals","HINDUNILVR":"FMCG","ICICIBANK":"Banking","INDIGO":"Aviation",
+    "INFY":"IT","ITC":"FMCG","JIOFIN":"Financials","JSWSTEEL":"Metals","KOTAKBANK":"Banking","LT":"Infra",
+    "M&M":"Auto","MARUTI":"Auto","MAXHEALTH":"Healthcare","NESTLEIND":"FMCG","NTPC":"Energy","ONGC":"Energy",
+    "POWERGRID":"Energy","RELIANCE":"Energy","SBILIFE":"Insurance","SHRIRAMFIN":"Financials","SBIN":"Banking",
+    "SUNPHARMA":"Pharma","TCS":"IT","TATACONSUM":"FMCG","TMPV":"Auto","TATASTEEL":"Metals","TECHM":"IT",
+    "TITAN":"Consumer","TRENT":"Retail","ULTRACEMCO":"Cement","WIPRO":"IT",
+}
+
+# ntfy.sh push alerts - free, no signup, no key. Pick a hard-to-guess topic
+# name (this one is fine to keep, or swap it) and subscribe to it in the
+# free ntfy app (iOS/Android) to get a push notification for every trade
+# event. Set to None to disable alerts entirely.
+NTFY_TOPIC = "nifty-paper-desk-suresh-8f2k91"
+
+
+def send_alert(title, message, priority="default", tags=""):
+    if not NTFY_TOPIC:
+        return
+    try:
+        requests.post(
+            f"https://ntfy.sh/{NTFY_TOPIC}",
+            data=message.encode("utf-8"),
+            headers={"Title": title, "Priority": priority, "Tags": tags},
+            timeout=10,
+        )
+    except Exception as e:
+        print("  alert failed:", e)
 
 
 # ---------------- state ----------------
@@ -75,14 +115,47 @@ def rsi(series, period=14):
     return 100 - (100/(1+rs))
 
 
-def atr(df, period=14):
+def true_range(df):
     high, low, close = df["High"], df["Low"], df["Close"]
     prev_close = close.shift(1)
-    tr = pd.concat([high-low, (high-prev_close).abs(), (low-prev_close).abs()], axis=1).max(axis=1)
+    return pd.concat([high-low, (high-prev_close).abs(), (low-prev_close).abs()], axis=1).max(axis=1)
+
+
+def atr(df, period=14):
+    tr = true_range(df)
     return tr.ewm(alpha=1/period, min_periods=period).mean()
 
 
-def analyze_symbol(df):
+def adx(df, period=14):
+    """Average Directional Index - trend strength, 0-100. >20ish = trending, <15ish = choppy."""
+    high, low = df["High"], df["Low"]
+    up_move = high.diff()
+    down_move = -low.diff()
+    plus_dm = np.where((up_move > down_move) & (up_move > 0), up_move, 0.0)
+    minus_dm = np.where((down_move > up_move) & (down_move > 0), down_move, 0.0)
+    tr = true_range(df)
+    atr_ = tr.ewm(alpha=1/period, min_periods=period).mean()
+    plus_di = 100 * pd.Series(plus_dm, index=df.index).ewm(alpha=1/period, min_periods=period).mean() / atr_.replace(0, np.nan)
+    minus_di = 100 * pd.Series(minus_dm, index=df.index).ewm(alpha=1/period, min_periods=period).mean() / atr_.replace(0, np.nan)
+    dx = 100 * (plus_di - minus_di).abs() / (plus_di + minus_di).replace(0, np.nan)
+    return dx.ewm(alpha=1/period, min_periods=period).mean()
+
+
+def weekly_trend_ok(df):
+    """Require price above its own 10-week SMA - a coarse multi-timeframe filter.
+    Returns True (pass) if there isn't enough weekly history yet, so early data
+    doesn't block every trade."""
+    try:
+        weekly = df["Close"].resample("W").last().dropna()
+        if len(weekly) < 10:
+            return True
+        wsma10 = weekly.rolling(10).mean()
+        return bool(weekly.iloc[-1] > wsma10.iloc[-1])
+    except Exception:
+        return True
+
+
+def analyze_symbol(df, nifty_chg20=None):
     """df: daily bars with today's latest price appended as the last (partial) row."""
     if df is None or len(df) < 30:
         return None
@@ -96,23 +169,29 @@ def analyze_symbol(df):
     macd_hist = macd_line - macd_signal
     rsi14 = rsi(close, 14)
     atr14 = atr(df, 14)
+    adx14 = adx(df, 14)
     vol_avg20 = df["Volume"].rolling(20).mean()
 
     ltp = float(close.iloc[-1])
-    donchian_high20 = float(df["High"].iloc[-21:-1].max()) if len(df) > 21 else None  # prior 20d high, excl today
+    donchian_high20 = float(df["High"].iloc[-21:-1].max()) if len(df) > 21 else None
     donchian_low20 = float(df["Low"].iloc[-21:-1].min()) if len(df) > 21 else None
 
     breakout = donchian_high20 is not None and ltp > donchian_high20
     breakdown = donchian_low20 is not None and ltp < donchian_low20
 
+    chg20 = float(close.iloc[-1] / close.iloc[-21] - 1) if len(close) > 21 else None
+    rel_strength = (chg20 - nifty_chg20) if (chg20 is not None and nifty_chg20 is not None) else None
+
     return {
         "ltp": ltp, "sma20": _f(sma20.iloc[-1]), "sma50": _f(sma50.iloc[-1]),
         "rsi14": _f(rsi14.iloc[-1]), "macd_hist": _f(macd_hist.iloc[-1]),
         "macd_hist_prev": _f(macd_hist.iloc[-2]) if len(df) > 1 else None,
-        "atr14": _f(atr14.iloc[-1]),
+        "atr14": _f(atr14.iloc[-1]), "adx14": _f(adx14.iloc[-1]),
         "volume": float(df["Volume"].iloc[-1]), "vol_avg20": _f(vol_avg20.iloc[-1]),
         "donchian_high20": donchian_high20, "donchian_low20": donchian_low20,
         "breakout": breakout, "breakdown": breakdown,
+        "rel_strength": _f(rel_strength) if rel_strength is not None else None,
+        "weekly_trend_ok": weekly_trend_ok(df),
     }
 
 
@@ -141,6 +220,12 @@ def technical_score(a):
         elif a["macd_hist"] < 0: score -= 1
     if a["volume"] and a["vol_avg20"] and a["volume"] > a["vol_avg20"]*1.3:
         score += 1; reasons.append("Volume surge confirming the move")
+    if a["adx14"] is not None:
+        if a["adx14"] >= 20: score += 1; reasons.append(f"ADX {a['adx14']:.0f} - trending tape")
+        elif a["adx14"] < 15: score -= 1; reasons.append(f"ADX {a['adx14']:.0f} - choppy, breakout less reliable")
+    if a["rel_strength"] is not None:
+        if a["rel_strength"] > 0.02: score += 1; reasons.append("Outperforming Nifty over 20 days")
+        elif a["rel_strength"] < -0.02: score -= 1; reasons.append("Lagging Nifty over 20 days")
     return score, reasons
 
 
@@ -155,10 +240,10 @@ def sentiment_score(symbol, sentiment_data):
     if s and s.get("confidence", 0) > 0:
         label = s["sentiment"]
         mult = {"bullish": 1, "neutral": 0, "bearish": -1}.get(label, 0)
-        score += mult * round(s["confidence"] / 3)  # 0-10 conf -> ~0-3 points
+        score += mult * round(s["confidence"] / 3)
     m_label = market.get("sentiment", "neutral")
     m_mult = {"bullish": 1, "neutral": 0, "bearish": -1}.get(m_label, 0)
-    score += m_mult  # market tailwind/headwind, +-1
+    score += m_mult
     return score, label
 
 
@@ -194,7 +279,7 @@ def open_paper_trade(state, symbol, a, tech_reasons, sent_label, regime="unknown
     if qty < 1:
         return
     buy_value = qty * entry
-    if buy_value > state["capital"] * 0.25:  # don't let one position eat >25% of capital
+    if buy_value > state["capital"] * 0.25:
         qty = int((state["capital"]*0.25)//entry)
     if qty < 1:
         return
@@ -202,31 +287,109 @@ def open_paper_trade(state, symbol, a, tech_reasons, sent_label, regime="unknown
     costs = buy_side_cost(buy_value)
     trade = {
         "symbol": symbol, "entry_time": datetime.now(UTC).isoformat(), "entry_price": entry,
-        "qty": qty, "stop": stop, "target": target, "buy_value": buy_value,
+        "qty": qty, "original_qty": qty, "stop": stop, "target": target, "buy_value": buy_value,
         "buy_costs": costs, "reasons": tech_reasons, "sentiment": sent_label, "regime": regime,
+        "sector": SECTOR_MAP.get(symbol, "Other"), "atr_entry": round(atr_val, 4),
+        "trail_active": False, "partial_taken": False,
     }
     state["open_positions"][symbol] = trade
     print(f"  OPEN  {symbol}  qty={qty}  entry={entry}  stop={stop}  target={target}  risk=Rs{risk_amount:.0f}")
+    send_alert(f"Opened {symbol}", f"qty={qty} entry=Rs{entry} stop=Rs{stop} target=Rs{target}\n{'; '.join(tech_reasons)}", tags="chart_with_upwards_trend")
 
 
-def check_and_close(state, symbol, ltp, reason):
+def check_and_close(state, symbol, ltp, reason, qty_override=None):
     pos = state["open_positions"].get(symbol)
     if not pos:
         return
+    close_qty = qty_override if qty_override is not None else pos["qty"]
     exit_price = apply_slippage(ltp, "sell")
-    sell_value = round(pos["qty"]*exit_price, 2)
+    sell_value = round(close_qty*exit_price, 2)
     sell_costs = sell_side_cost(sell_value)
-    gross_pnl = round(sell_value - pos["buy_value"], 2)
-    net_pnl = round(gross_pnl - pos["buy_costs"] - sell_costs, 2)
+    # allocate buy-side value/costs proportionally to the quantity being closed
+    frac = close_qty / pos["original_qty"]
+    buy_value_frac = round(pos["buy_value"] * (close_qty / pos["qty"]) if pos["qty"] else 0, 2) if qty_override else pos["buy_value"]
+    buy_costs_frac = round(pos["buy_costs"] * frac, 2) if qty_override else pos["buy_costs"]
+    gross_pnl = round(sell_value - buy_value_frac, 2)
+    net_pnl = round(gross_pnl - buy_costs_frac - sell_costs, 2)
     closed = {
-        **pos, "exit_time": datetime.now(UTC).isoformat(), "exit_price": exit_price,
+        **pos, "qty": close_qty, "exit_time": datetime.now(UTC).isoformat(), "exit_price": exit_price,
         "sell_value": sell_value, "sell_costs": sell_costs, "gross_pnl": gross_pnl,
         "net_pnl": net_pnl, "exit_reason": reason,
     }
     state["closed_trades"].append(closed)
     state["capital"] = round(state["capital"] + net_pnl, 2)
-    del state["open_positions"][symbol]
-    print(f"  CLOSE {symbol}  exit={exit_price}  reason={reason}  net_pnl=Rs{net_pnl:+.2f}  capital=Rs{state['capital']:.0f}")
+
+    remaining = pos["qty"] - close_qty
+    if remaining <= 0:
+        del state["open_positions"][symbol]
+        win = net_pnl > 0
+        send_alert(
+            f"{'Closed' if win else 'Stopped out'}: {symbol}",
+            f"exit=Rs{exit_price} reason={reason} net_pnl=Rs{net_pnl:+.2f} capital=Rs{state['capital']:.0f}",
+            priority="high" if not win else "default",
+            tags="moneybag" if win else "chart_with_downwards_trend",
+        )
+    else:
+        pos["qty"] = remaining
+        pos["buy_value"] = round(pos["buy_value"] - buy_value_frac, 2)
+        pos["buy_costs"] = round(pos["buy_costs"] - buy_costs_frac, 2)
+        send_alert(
+            f"Partial profit: {symbol}",
+            f"sold {close_qty} of {pos['original_qty']} at Rs{exit_price}, net_pnl=Rs{net_pnl:+.2f}. {remaining} left running.",
+            tags="moneybag",
+        )
+    print(f"  CLOSE {symbol}  qty={close_qty}  exit={exit_price}  reason={reason}  net_pnl=Rs{net_pnl:+.2f}  capital=Rs{state['capital']:.0f}")
+
+
+def manage_open_position(state, symbol, a):
+    """Trailing stop, breakeven-move, partial profit-taking, and max-hold-period
+    checks for one open position. Returns True if the position was fully closed."""
+    pos = state["open_positions"][symbol]
+    ltp = a["ltp"]
+    atr_entry = pos.get("atr_entry") or (pos["entry_price"]*0.02)
+    gain_atr = (ltp - pos["entry_price"]) / atr_entry if atr_entry else 0
+
+    # max holding period - force exit regardless of price action
+    entry_dt = datetime.fromisoformat(pos["entry_time"])
+    if entry_dt.tzinfo is None:
+        entry_dt = entry_dt.replace(tzinfo=UTC)
+    held_days = (datetime.now(UTC) - entry_dt).days
+    if held_days >= MAX_HOLD_DAYS:
+        check_and_close(state, symbol, ltp, "max_hold_period")
+        return True
+
+    # stop / target / signal-reversal checks first
+    if ltp <= pos["stop"]:
+        check_and_close(state, symbol, pos["stop"], "stop_hit")
+        return True
+    if ltp >= pos["target"] and not pos.get("trail_active"):
+        check_and_close(state, symbol, pos["target"], "target_hit")
+        return True
+    if a["breakdown"] or (a["rsi14"] and a["rsi14"] > 78):
+        check_and_close(state, symbol, ltp, "signal_reversal")
+        return True
+
+    # partial profit-taking, once
+    if not pos.get("partial_taken") and gain_atr >= PARTIAL_TAKE_ATR:
+        take_qty = max(1, int(round(pos["original_qty"] * PARTIAL_TAKE_FRACTION)))
+        take_qty = min(take_qty, pos["qty"] - 1) if pos["qty"] > 1 else 0
+        if take_qty > 0:
+            pos["partial_taken"] = True
+            check_and_close(state, symbol, ltp, "partial_profit", qty_override=take_qty)
+            pos = state["open_positions"].get(symbol)
+            if not pos:
+                return True
+
+    # trailing stop management (ratchets up only, never down)
+    if gain_atr >= TRAIL_START_ATR:
+        pos["trail_active"] = True
+        new_stop = round(ltp - TRAIL_DISTANCE_ATR*atr_entry, 2)
+        if new_stop > pos["stop"]:
+            pos["stop"] = new_stop
+    elif gain_atr >= BREAKEVEN_AT_ATR and pos["stop"] < pos["entry_price"]:
+        pos["stop"] = pos["entry_price"]
+
+    return False
 
 
 # ---------------- performance metrics ----------------
@@ -260,10 +423,8 @@ def compute_metrics(state):
         first_trade_date = first_trade_date.replace(tzinfo=UTC)
     weeks_elapsed = round((datetime.now(UTC)-first_trade_date).days/7, 1)
 
-    # data integrity: every closed trade should have a complete, sane record
     required_fields = ["symbol","entry_time","exit_time","entry_price","exit_price","qty","stop","target","net_pnl"]
     integrity_issues = []
-    seen_open_symbols = set()
     for t in trades:
         missing = [f for f in required_fields if t.get(f) is None]
         if missing:
@@ -271,17 +432,14 @@ def compute_metrics(state):
         if t.get("qty", 0) <= 0:
             integrity_issues.append(f"{t.get('symbol','?')} non-positive qty")
     open_symbols = list(state["open_positions"].keys())
-    duplicate_open = len(open_symbols) != len(set(open_symbols))
-    if duplicate_open:
+    if len(open_symbols) != len(set(open_symbols)):
         integrity_issues.append("duplicate symbol in open_positions")
 
-    # stop-loss reliability: of trades that lost money, what fraction actually exited
-    # at/near the intended stop (vs slipping through on a signal_reversal or gap)?
-    stop_losses = [t for t in trades if t["net_pnl"] < 0]
+    # only count full stop-outs (not partial-profit legs) for stop reliability
+    stop_losses = [t for t in trades if t["net_pnl"] < 0 and t["exit_reason"] != "partial_profit"]
     clean_stops = [t for t in stop_losses if t.get("exit_reason") == "stop_hit"]
     stop_reliability_pct = round(100*len(clean_stops)/len(stop_losses), 1) if stop_losses else None
 
-    # regime stability: net pnl and win rate broken down by market regime at entry
     regimes = {}
     for t in trades:
         r = t.get("regime", "unknown")
@@ -315,24 +473,26 @@ def compute_metrics(state):
 
 
 # ---------------- market hours ----------------
-def fetch_nifty_regime():
-    """Classify the current market regime off the Nifty 50 index's own 20-day trend."""
+def fetch_nifty_regime_and_chg20():
+    """Classify the current market regime, and return Nifty's own 20-day % change
+    (used for relative-strength scoring on individual stocks)."""
     try:
         df = yf.Ticker("^NSEI").history(period="3mo", interval="1d")
         if len(df) < 21:
-            return "unknown"
-        chg20 = df["Close"].iloc[-1] / df["Close"].iloc[-21] - 1
+            return "unknown", None
+        chg20 = float(df["Close"].iloc[-1] / df["Close"].iloc[-21] - 1)
         if chg20 > 0.02:
-            return "bull"
-        if chg20 < -0.02:
-            return "bear"
-        return "sideways"
+            regime = "bull"
+        elif chg20 < -0.02:
+            regime = "bear"
+        else:
+            regime = "sideways"
+        return regime, chg20
     except Exception:
-        return "unknown"
+        return "unknown", None
 
 
 def is_market_open_now():
-    """NSE trading hours (9:15-15:30 IST), checked in IST regardless of host timezone."""
     now = datetime.now(IST)
     if now.weekday() >= 5:
         return False
@@ -366,51 +526,63 @@ def fetch_daily_with_today(symbol):
 
 def run_cycle(state, sentiment_data):
     print(f"\n=== cycle {datetime.now(IST).strftime('%Y-%m-%d %H:%M:%S IST')} | open={len(state['open_positions'])} | capital=Rs{state['capital']:.0f} ===")
-    regime = fetch_nifty_regime()
+    regime, nifty_chg20 = fetch_nifty_regime_and_chg20()
     all_analysis = {}
     for sym in NIFTY50:
         df = fetch_daily_with_today(sym)
-        a = analyze_symbol(df)
+        a = analyze_symbol(df, nifty_chg20)
         if a:
             all_analysis[sym] = a
 
-    # manage open positions first
+    gate_before = compute_metrics(state).get("gate_status", {})
+
+    # manage open positions (stop/target/reversal, trailing, partials, max-hold)
     for sym in list(state["open_positions"].keys()):
         a = all_analysis.get(sym)
         if not a:
             continue
-        ltp = a["ltp"]
-        pos = state["open_positions"][sym]
-        if ltp <= pos["stop"]:
-            check_and_close(state, sym, pos["stop"], "stop_hit")
-        elif ltp >= pos["target"]:
-            check_and_close(state, sym, pos["target"], "target_hit")
-        elif a["breakdown"] or (a["rsi14"] and a["rsi14"] > 78):
-            check_and_close(state, sym, ltp, "signal_reversal")
+        manage_open_position(state, sym, a)
 
     # look for new entries
     if len(state["open_positions"]) < MAX_OPEN_POSITIONS:
+        sector_counts = {}
+        for p in state["open_positions"].values():
+            sec = p.get("sector", "Other")
+            sector_counts[sec] = sector_counts.get(sec, 0) + 1
+
         ranked = []
         for sym, a in all_analysis.items():
             if sym in state["open_positions"]:
                 continue
+            if not a.get("weekly_trend_ok", True):
+                continue  # multi-timeframe filter: skip if weekly trend disagrees
             t_score, reasons = technical_score(a)
             s_score, s_label = sentiment_score(sym, sentiment_data)
             total = t_score + s_score
             ranked.append((total, sym, a, reasons, s_label))
         ranked.sort(key=lambda x: -x[0])
+
         for total, sym, a, reasons, s_label in ranked:
             if len(state["open_positions"]) >= MAX_OPEN_POSITIONS:
                 break
-            if total >= 5 and a["breakout"]:  # qualifying signal threshold
+            sec = SECTOR_MAP.get(sym, "Other")
+            if sector_counts.get(sec, 0) >= SECTOR_MAX_POSITIONS:
+                continue
+            if total >= 5 and a["breakout"]:
                 open_paper_trade(state, sym, a, reasons, s_label, regime)
+                sector_counts[sec] = sector_counts.get(sec, 0) + 1
 
-    state["last_cycle_at"] = datetime.now(UTC).isoformat()  # heartbeat so every run leaves a diff to commit
+    state["last_cycle_at"] = datetime.now(UTC).isoformat()
     save_state(state)
     metrics = compute_metrics(state)
     METRICS_PATH.parent.mkdir(exist_ok=True)
     json.dump(metrics, open(METRICS_PATH, "w"), indent=2)
     print(f"metrics: trades={metrics['trade_count']} pnl=Rs{metrics.get('total_net_pnl',0)}")
+
+    # milestone alert: gate flips from not-fully-passing to fully-passing
+    gate_after = metrics.get("gate_status", {})
+    if gate_after and all(v is True or v is None for v in gate_after.values()) and not all(v is True or v is None for v in gate_before.values()):
+        send_alert("Go-live gate passed", "All paper-trading validation criteria are now met. Live automation can be considered (still needs your explicit go-ahead).", priority="urgent", tags="rotating_light")
 
 
 def main():
