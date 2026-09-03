@@ -34,6 +34,7 @@ STATE_PATH = BASE / "data" / "paper_state.json"
 SENTIMENT_PATH = BASE / "data" / "sentiment.json"
 WATCHLIST_PATH = BASE / "data" / "watchlist.json"
 METRICS_PATH = BASE / "output" / "performance_metrics.json"
+CANDIDATES_PATH = BASE / "output" / "stock_candidates.json"
 
 CAPITAL = 100_000.0          # fixed capital base you set
 RISK_PER_TRADE_PCT = 0.01    # 1% of capital max risk per trade
@@ -47,6 +48,8 @@ PARTIAL_TAKE_ATR = 1.5       # book partial profit once gain reaches this many A
 PARTIAL_TAKE_FRACTION = 0.5  # fraction of the position closed at the partial-profit point
 CYCLE_SECONDS = 5 * 60       # only used by the manual/local loop in main()
 SENTIMENT_STALE_HOURS = 2.5  # ignore sentiment file older than this
+REGIME_MAX_VIX = 22          # market regime gate: no new longs if India VIX at/above this
+MIN_CONFIRMS_REQUIRED = 3    # of the 4 confirming categories, how many must pass (of momentum/RS/ADX/sentiment)
 
 NIFTY50 = [
     "ADANIENT","ADANIPORTS","APOLLOHOSP","ASIANPAINT","AXISBANK","BAJAJ-AUTO","BAJFINANCE",
@@ -200,6 +203,10 @@ def _f(x):
 
 
 # ---------------- signal fusion ----------------
+# technical_score() is the v2 additive scorer, kept only for reference - v3
+# entry decisions go through confluence_check() below instead, which requires
+# multiple independent categories to agree rather than letting one strong
+# signal outvote the rest.
 def technical_score(a):
     score = 0
     reasons = []
@@ -262,6 +269,71 @@ def load_sentiment():
     except Exception:
         pass
     return d
+
+
+CATEGORY_LABELS = {
+    "trend": "Trend aligned - price above SMA20 above SMA50, weekly close above its 10-week SMA",
+    "breakout_volume": "20-day range breakout confirmed by above-average volume",
+    "momentum": "Momentum healthy - RSI in the 45-68 zone with rising positive MACD histogram",
+    "relative_strength": "Outperforming the Nifty over the last 20 trading days",
+    "trend_strength": "ADX >= 20 - genuinely trending, not choppy",
+    "sentiment": "Recent news/sentiment on the stock and market is not bearish",
+}
+
+
+def confluence_check(a, symbol, sentiment_data):
+    """v3 multi-logic entry filter. Six independent signal categories are each
+    scored pass/fail. Two are structural and MUST both pass (trend alignment,
+    and a volume-confirmed breakout) - a trade is never taken on a breakout
+    with no volume, or a volume surge with no trend. Of the four remaining
+    *confirming* categories (momentum, relative strength, trend strength,
+    news sentiment) at least MIN_CONFIRMS_REQUIRED must also agree. This is
+    deliberately stricter than a single additive score: one very strong
+    signal can never single-handedly outvote the others, which is what
+    "confirm multiple logics before a trade" means in practice. A strongly
+    bearish, high-confidence news read on the specific stock is a hard veto
+    regardless of how the technicals look."""
+    cats = {}
+
+    cats["trend"] = bool(
+        a["sma20"] and a["sma50"] and a["ltp"] > a["sma20"] > a["sma50"]
+    ) and a.get("weekly_trend_ok", True)
+
+    vol_confirm = bool(a["volume"] and a["vol_avg20"] and a["volume"] > a["vol_avg20"] * 1.3)
+    cats["breakout_volume"] = bool(a["breakout"]) and vol_confirm
+
+    rsi_ok = a["rsi14"] is not None and 45 <= a["rsi14"] <= 68
+    macd_ok = (
+        a["macd_hist"] is not None and a["macd_hist_prev"] is not None
+        and a["macd_hist"] > 0 and a["macd_hist"] > a["macd_hist_prev"]
+    )
+    cats["momentum"] = bool(rsi_ok and macd_ok)
+
+    cats["relative_strength"] = bool(a["rel_strength"] is not None and a["rel_strength"] > 0.02)
+    cats["trend_strength"] = bool(a["adx14"] is not None and a["adx14"] >= 20)
+
+    _, s_label = sentiment_score(symbol, sentiment_data)
+    stock_bearish_veto = False
+    if sentiment_data:
+        s = sentiment_data.get("stocks", {}).get(symbol)
+        if s and s.get("sentiment") == "bearish" and (s.get("confidence") or 0) >= 6:
+            stock_bearish_veto = True
+    market_label = (sentiment_data or {}).get("market", {}).get("sentiment", "neutral")
+    cats["sentiment"] = (s_label != "bearish") and (market_label != "bearish")
+
+    structural_ok = cats["trend"] and cats["breakout_volume"]
+    confirming_keys = ["momentum", "relative_strength", "trend_strength", "sentiment"]
+    confirms_passed = sum(1 for k in confirming_keys if cats[k])
+    passed = structural_ok and confirms_passed >= MIN_CONFIRMS_REQUIRED and not stock_bearish_veto
+
+    return {
+        "passed": passed,
+        "categories": cats,
+        "confirms_passed": confirms_passed,
+        "veto_bearish_news": stock_bearish_veto,
+        "sentiment_label": s_label,
+        "score": sum(1 for v in cats.values() if v),
+    }
 
 
 # ---------------- trade simulation ----------------
@@ -473,23 +545,52 @@ def compute_metrics(state):
 
 
 # ---------------- market hours ----------------
-def fetch_nifty_regime_and_chg20():
-    """Classify the current market regime, and return Nifty's own 20-day % change
-    (used for relative-strength scoring on individual stocks)."""
+def fetch_market_regime():
+    """System-wide regime gate, checked once per cycle before any new entries
+    are considered - a good individual stock setup is still skipped if the
+    broader market itself is unfavourable. Two checks:
+      - Nifty must be above its own 50-day SMA (don't fight the index trend).
+      - India VIX must be below REGIME_MAX_VIX (don't add new risk into a
+        volatility spike, even if the tape looks bullish on paper).
+    Returns (regime_label, nifty_chg20, regime_gate_open, detail_dict).
+    Missing/short data defaults the gate OPEN rather than silently freezing
+    the whole system - a data hiccup here should never quietly stop trading."""
     try:
-        df = yf.Ticker("^NSEI").history(period="3mo", interval="1d")
-        if len(df) < 21:
-            return "unknown", None
-        chg20 = float(df["Close"].iloc[-1] / df["Close"].iloc[-21] - 1)
-        if chg20 > 0.02:
+        df = yf.Ticker("^NSEI").history(period="14mo", interval="1d")
+        if len(df) < 60:
+            return "unknown", None, True, {"note": "insufficient Nifty history - gate defaults open"}
+        close = df["Close"]
+        ltp = float(close.iloc[-1])
+        chg20 = float(close.iloc[-1] / close.iloc[-21] - 1) if len(close) > 21 else None
+        sma50 = float(close.rolling(50).mean().iloc[-1])
+        sma200 = float(close.rolling(200).mean().iloc[-1]) if len(close) >= 200 else None
+        above_50 = ltp > sma50
+        above_200 = (sma200 is None) or (ltp > sma200)
+
+        vix = None
+        try:
+            vdf = yf.Ticker("^INDIAVIX").history(period="5d", interval="1d")
+            if not vdf.empty:
+                vix = float(vdf["Close"].iloc[-1])
+        except Exception:
+            vix = None
+        vix_ok = (vix is None) or (vix < REGIME_MAX_VIX)
+
+        if chg20 is not None and chg20 > 0.02:
             regime = "bull"
-        elif chg20 < -0.02:
+        elif chg20 is not None and chg20 < -0.02:
             regime = "bear"
         else:
             regime = "sideways"
-        return regime, chg20
-    except Exception:
-        return "unknown", None
+
+        regime_gate_open = above_50 and vix_ok
+        detail = {
+            "nifty_ltp": round(ltp, 2), "above_sma50": above_50, "above_sma200": above_200,
+            "india_vix": round(vix, 2) if vix is not None else None, "vix_ok": vix_ok,
+        }
+        return regime, chg20, regime_gate_open, detail
+    except Exception as e:
+        return "unknown", None, True, {"error": str(e), "note": "fetch failed - gate defaults open"}
 
 
 def is_market_open_now():
@@ -526,7 +627,9 @@ def fetch_daily_with_today(symbol):
 
 def run_cycle(state, sentiment_data):
     print(f"\n=== cycle {datetime.now(IST).strftime('%Y-%m-%d %H:%M:%S IST')} | open={len(state['open_positions'])} | capital=Rs{state['capital']:.0f} ===")
-    regime, nifty_chg20 = fetch_nifty_regime_and_chg20()
+    regime, nifty_chg20, regime_gate_open, regime_detail = fetch_market_regime()
+    print(f"  market regime={regime}  gate_open={regime_gate_open}  {regime_detail}")
+
     all_analysis = {}
     for sym in NIFTY50:
         df = fetch_daily_with_today(sym)
@@ -537,40 +640,73 @@ def run_cycle(state, sentiment_data):
     gate_before = compute_metrics(state).get("gate_status", {})
 
     # manage open positions (stop/target/reversal, trailing, partials, max-hold)
+    # - this always runs, even when the regime gate is closed for NEW entries.
     for sym in list(state["open_positions"].keys()):
         a = all_analysis.get(sym)
         if not a:
             continue
         manage_open_position(state, sym, a)
 
-    # look for new entries
-    if len(state["open_positions"]) < MAX_OPEN_POSITIONS:
-        sector_counts = {}
-        for p in state["open_positions"].values():
-            sec = p.get("sector", "Other")
-            sector_counts[sec] = sector_counts.get(sec, 0) + 1
+    sector_counts = {}
+    for p in state["open_positions"].values():
+        sec = p.get("sector", "Other")
+        sector_counts[sec] = sector_counts.get(sec, 0) + 1
 
-        ranked = []
-        for sym, a in all_analysis.items():
-            if sym in state["open_positions"]:
-                continue
-            if not a.get("weekly_trend_ok", True):
-                continue  # multi-timeframe filter: skip if weekly trend disagrees
-            t_score, reasons = technical_score(a)
-            s_score, s_label = sentiment_score(sym, sentiment_data)
-            total = t_score + s_score
-            ranked.append((total, sym, a, reasons, s_label))
-        ranked.sort(key=lambda x: -x[0])
+    # score every symbol every cycle (v3 confluence engine) - this both drives
+    # entries and produces a full recommendation snapshot (stock_candidates.json)
+    # for symbols that scored well but weren't traded (sector cap, position cap,
+    # regime gate closed, etc), so "which stocks look good right now" is always
+    # answered even when the system itself doesn't act on it.
+    candidates_out = []
+    entry_ranked = []
+    for sym, a in all_analysis.items():
+        conf = confluence_check(a, sym, sentiment_data)
+        already_open = sym in state["open_positions"]
+        sec = SECTOR_MAP.get(sym, "Other")
+        blocked = []
+        if already_open:
+            blocked.append("position already open")
+        if not regime_gate_open:
+            blocked.append("market regime gate closed")
+        if sector_counts.get(sec, 0) >= SECTOR_MAX_POSITIONS:
+            blocked.append("sector concentration cap reached")
+        if len(state["open_positions"]) >= MAX_OPEN_POSITIONS:
+            blocked.append("max open positions reached")
 
-        for total, sym, a, reasons, s_label in ranked:
+        candidates_out.append({
+            "symbol": sym, "sector": sec, "ltp": a["ltp"],
+            "confluence_passed": conf["passed"], "confluence_score": conf["score"],
+            "confirms_passed": conf["confirms_passed"], "categories": conf["categories"],
+            "sentiment": conf["sentiment_label"], "veto_bearish_news": conf["veto_bearish_news"],
+            "blocked_reasons": blocked,
+        })
+        if conf["passed"] and not already_open:
+            entry_ranked.append((conf["score"], sym, a, conf))
+
+    entry_ranked.sort(key=lambda x: -x[0])
+
+    # act on entries only if the market regime gate is open this cycle
+    if regime_gate_open:
+        for score, sym, a, conf in entry_ranked:
             if len(state["open_positions"]) >= MAX_OPEN_POSITIONS:
                 break
             sec = SECTOR_MAP.get(sym, "Other")
             if sector_counts.get(sec, 0) >= SECTOR_MAX_POSITIONS:
                 continue
-            if total >= 5 and a["breakout"]:
-                open_paper_trade(state, sym, a, reasons, s_label, regime)
-                sector_counts[sec] = sector_counts.get(sec, 0) + 1
+            reasons = [CATEGORY_LABELS[k] for k, v in conf["categories"].items() if v]
+            open_paper_trade(state, sym, a, reasons, conf["sentiment_label"], regime)
+            sector_counts[sec] = sector_counts.get(sec, 0) + 1
+    else:
+        print("  regime gate closed this cycle - managing open positions only, no new entries")
+
+    candidates_out.sort(key=lambda c: -c["confluence_score"])
+    CANDIDATES_PATH.parent.mkdir(exist_ok=True)
+    json.dump({
+        "generated_at": datetime.now(UTC).isoformat(),
+        "market_regime": regime, "regime_gate_open": regime_gate_open, "regime_detail": regime_detail,
+        "min_confirms_required": MIN_CONFIRMS_REQUIRED,
+        "candidates": candidates_out,
+    }, open(CANDIDATES_PATH, "w"), indent=2, default=str)
 
     state["last_cycle_at"] = datetime.now(UTC).isoformat()
     save_state(state)
