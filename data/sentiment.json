@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-09-03T17:44:07.788022+00:00",
+  "market": {
+    "sentiment": "neutral",
+    "confidence": 4,
+    "rationale": "Market cues are mixed to cautious amid global rate uncertainty from the US Fed and domestic regulatory scrutiny as SEBI reviews derivatives settlement methodology."
+  },
+  "stocks": {
+    "RELIANCE": {
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
+    },
+    "TCS": {
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No direct or market-moving headlines available."
+    },
+    "HDFCBANK": {
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
+    },
+    "ICICIBANK": {
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "Provided ADR summary headline is not directly market-moving."
+    },
+    "INFY": {
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
+    },
+    "SBIN": {
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
+    },
+    "BHARTIARTL": {
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
+    },
+    "ITC": {
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
+    },
+    "LT": {
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
+    },
+    "AXISBANK": {
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
+    }
+  }
+}
