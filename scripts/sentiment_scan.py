@@ -24,6 +24,7 @@ credit card at https://aistudio.google.com/apikey.
 """
 import json
 import os
+import sys
 import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
@@ -195,7 +196,8 @@ def main():
         result = call_gemini(prompt, api_key)
     except Exception as e:
         print("Gemini call failed:", e)
-        return
+        print("FATAL: exiting non-zero so this shows as a clear failure, not a silent skip.")
+        sys.exit(1)
 
     market = result.get("market", {"sentiment": "neutral", "confidence": 0, "rationale": "parse error"})
     stocks = result.get("stocks", {})
