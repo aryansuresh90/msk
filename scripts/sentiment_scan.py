@@ -37,7 +37,7 @@ BASE = Path(__file__).parent.parent
 WATCHLIST_PATH = BASE / "data" / "watchlist.json"
 SENTIMENT_PATH = BASE / "data" / "sentiment.json"
 
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = "gemini-flash-latest"
 GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
 MAX_SYMBOLS = 20
 MAX_HEADLINES_PER_SYMBOL = 4
