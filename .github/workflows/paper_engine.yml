@@ -23,14 +23,15 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run one paper-trading cycle
-        working-directory: scripts
-        run: python run_once.py
-
-      - name: Commit updated state
+      - name: Run cycle and commit
         run: |
+          cd scripts
+          python run_once.py
+          cd ..
           git config user.name "nifty-paper-engine"
           git config user.email "actions@users.noreply.github.com"
-          git add data/paper_state.json output/performance_metrics.json
+          for f in data/paper_state.json output/performance_metrics.json output/stock_candidates.json; do
+            [ -f "$f" ] && git add "$f"
+          done
           git diff --quiet --cached || git commit -m "Cycle update $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
           git push
