@@ -7,6 +7,14 @@ on:
     - cron: '*/15 3-10 * * 1-5'
   workflow_dispatch: {}   # lets you trigger a manual test run from the Actions tab
 
+# Only one run of this workflow at a time - a manual test click and the next
+# scheduled fire (or two manual clicks) can otherwise overlap, both try to
+# commit, and whichever pushes second gets rejected. Runs that queue up wait
+# their turn instead of racing; none are silently skipped.
+concurrency:
+  group: paper-engine
+  cancel-in-progress: false
+
 permissions:
   contents: write   # needed so this workflow can commit the updated state back to the repo
 
@@ -33,5 +41,21 @@ jobs:
           for f in data/paper_state.json output/performance_metrics.json output/stock_candidates.json; do
             [ -f "$f" ] && git add "$f"
           done
-          git diff --quiet --cached || git commit -m "Cycle update $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          git push
+          if git diff --quiet --cached; then
+            echo "no changes to commit"
+          else
+            git commit -m "Cycle update $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            success=0
+            for attempt in 1 2 3; do
+              if git push; then
+                success=1
+                break
+              fi
+              echo "push rejected (attempt $attempt) - another workflow committed first. Pulling latest and retrying..."
+              git pull --rebase origin main
+            done
+            if [ "$success" != "1" ]; then
+              echo "push still failing after retries"
+              exit 1
+            fi
+          fi
