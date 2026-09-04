@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-03T17:44:07.788022+00:00",
+  "generated_at": "2026-09-04T07:28:25.216773+00:00",
   "market": {
     "sentiment": "neutral",
-    "confidence": 4,
-    "rationale": "Market cues are mixed to cautious amid global rate uncertainty from the US Fed and domestic regulatory scrutiny as SEBI reviews derivatives settlement methodology."
+    "confidence": 5,
+    "rationale": "Global cues are mixed as declining US Fed rate cut expectations and warnings over AI risk concentration counter positive domestic festive cues and selective stock-specific momentum."
   },
   "stocks": {
     "RELIANCE": {
@@ -14,7 +14,7 @@
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No direct or market-moving headlines available."
+      "rationale": "Provided headline refers to another company (Rezolve) and is not relevant to TCS."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
@@ -24,7 +24,7 @@
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Provided ADR summary headline is not directly market-moving."
+      "rationale": "No headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
