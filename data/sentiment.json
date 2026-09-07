@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-07T03:31:04.187888+00:00",
+  "generated_at": "2026-09-07T04:31:15.944422+00:00",
   "market": {
     "sentiment": "bearish",
-    "confidence": 7,
-    "rationale": "Crude oil approaching $100/bbl due to West Asia geopolitical tensions and GIFT Nifty indicating a negative open pose near-term headwinds for Indian equities."
+    "confidence": 5,
+    "rationale": "GIFT Nifty indicates a cautious start weighed down by crude oil prices, equity fund outflows, and rising US Fed rate hike expectations, partially balanced by record-high domestic forex reserves."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Mentioned only in a generic stocks-to-watch list without actionable details."
+      "rationale": "No headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Mentioned only in a generic stocks-to-watch list without actionable details."
+      "rationale": "No headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Mentioned only in a generic stocks-to-watch list without actionable details."
+      "rationale": "No headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     }
   }
 }
