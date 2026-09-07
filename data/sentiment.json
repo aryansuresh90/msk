@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-07T04:31:15.944422+00:00",
+  "generated_at": "2026-09-07T08:32:39.502658+00:00",
   "market": {
-    "sentiment": "bearish",
+    "sentiment": "neutral",
     "confidence": 5,
-    "rationale": "GIFT Nifty indicates a cautious start weighed down by crude oil prices, equity fund outflows, and rising US Fed rate hike expectations, partially balanced by record-high domestic forex reserves."
+    "rationale": "Global market cues are mixed to mildly positive with Nikkei rallying on tech strength while China remains range-bound. Domestic news shows active primary market flows and routine corporate orders without major systemic market-moving triggers."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available for Reliance Industries."
     },
     "TCS": {
       "sentiment": "neutral",
