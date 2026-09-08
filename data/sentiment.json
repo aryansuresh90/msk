@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-07T08:32:39.502658+00:00",
+  "generated_at": "2026-09-08T05:29:01.111448+00:00",
   "market": {
-    "sentiment": "neutral",
-    "confidence": 5,
-    "rationale": "Global market cues are mixed to mildly positive with Nikkei rallying on tech strength while China remains range-bound. Domestic news shows active primary market flows and routine corporate orders without major systemic market-moving triggers."
+    "sentiment": "bearish",
+    "confidence": 6,
+    "rationale": "The Sensex declined by 317 points led by weakness in realty, while 8 out of 12 Nifty PSU Bank index components are reported trading below their 200-DMA despite selective positive sector views in defence and IT."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available for Reliance Industries."
+      "rationale": "No direct or market-moving headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
@@ -18,8 +18,8 @@
     },
     "HDFCBANK": {
       "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "confidence": 1,
+      "rationale": "Routine comparative valuation commentary with no clear market-moving catalyst."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
@@ -33,8 +33,8 @@
     },
     "SBIN": {
       "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "confidence": 3,
+      "rationale": "Expansion plans involving 12,000 new hires and 250 branches provide operational positivity, but PSU banking peers face technical pressure trading below their 200-DMA."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
