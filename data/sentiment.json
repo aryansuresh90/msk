@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-08T05:29:01.111448+00:00",
+  "generated_at": "2026-09-08T08:32:40.618276+00:00",
   "market": {
     "sentiment": "bearish",
     "confidence": 6,
-    "rationale": "The Sensex declined by 317 points led by weakness in realty, while 8 out of 12 Nifty PSU Bank index components are reported trading below their 200-DMA despite selective positive sector views in defence and IT."
+    "rationale": "Benchmarks trading near day's lows amid declining European shares, coupled with macro risks such as Goldman Sachs' warning of potential oil spikes to $120 and ongoing yen carry trade unwinding risks."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No direct or market-moving headlines available."
+      "rationale": "The reported headline about Kering's award expansion to India is non-material and not market-moving for Reliance."
     },
     "TCS": {
       "sentiment": "neutral",
@@ -18,8 +18,8 @@
     },
     "HDFCBANK": {
       "sentiment": "neutral",
-      "confidence": 1,
-      "rationale": "Routine comparative valuation commentary with no clear market-moving catalyst."
+      "confidence": 0,
+      "rationale": "Only an automated third-party value comparison article is available, which lacks market-moving impact."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
@@ -32,9 +32,9 @@
       "rationale": "No headlines available."
     },
     "SBIN": {
-      "sentiment": "neutral",
-      "confidence": 3,
-      "rationale": "Expansion plans involving 12,000 new hires and 250 branches provide operational positivity, but PSU banking peers face technical pressure trading below their 200-DMA."
+      "sentiment": "bullish",
+      "confidence": 4,
+      "rationale": "SBI plans network and operations expansion with targets for 12,000 hires and 250 additional branches."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
