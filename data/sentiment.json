@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-08T08:32:40.618276+00:00",
+  "generated_at": "2026-09-08T10:30:52.042036+00:00",
   "market": {
     "sentiment": "bearish",
-    "confidence": 6,
-    "rationale": "Benchmarks trading near day's lows amid declining European shares, coupled with macro risks such as Goldman Sachs' warning of potential oil spikes to $120 and ongoing yen carry trade unwinding risks."
+    "confidence": 5,
+    "rationale": "Global market headwinds including European market declines, elevated bond yields, and warnings of crude oil spiking to $120/bbl pose inflation and margin risks for Indian equities."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "The reported headline about Kering's award expansion to India is non-material and not market-moving for Reliance."
+      "rationale": "Headline regarding Kering's award expansion is not market-moving for Reliance."
     },
     "TCS": {
       "sentiment": "neutral",
@@ -18,8 +18,8 @@
     },
     "HDFCBANK": {
       "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "Only an automated third-party value comparison article is available, which lacks market-moving impact."
+      "confidence": 1,
+      "rationale": "Routine valuation comparison piece with no material impact on the stock."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
@@ -34,7 +34,7 @@
     "SBIN": {
       "sentiment": "bullish",
       "confidence": 4,
-      "rationale": "SBI plans network and operations expansion with targets for 12,000 hires and 250 additional branches."
+      "rationale": "Plans to hire 12,000 staff and open 250 branches signal ongoing operational growth and branch network expansion."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
