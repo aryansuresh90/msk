@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-08T10:30:52.042036+00:00",
+  "generated_at": "2026-09-09T08:31:48.443131+00:00",
   "market": {
-    "sentiment": "bearish",
+    "sentiment": "neutral",
     "confidence": 5,
-    "rationale": "Global market headwinds including European market declines, elevated bond yields, and warnings of crude oil spiking to $120/bbl pose inflation and margin risks for Indian equities."
+    "rationale": "Macro headwinds from elevated US bond yields near 5%, UK gilt pressures, and rupee weakness driven by rising crude oil are offset by positive stock-specific domestic momentum and order wins."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Headline regarding Kering's award expansion is not market-moving for Reliance."
+      "rationale": "No company-specific headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
-      "confidence": 1,
-      "rationale": "Routine valuation comparison piece with no material impact on the stock."
+      "confidence": 0,
+      "rationale": "No company-specific headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "SBIN": {
-      "sentiment": "bullish",
-      "confidence": 4,
-      "rationale": "Plans to hire 12,000 staff and open 250 branches signal ongoing operational growth and branch network expansion."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No company-specific headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "LT": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bullish",
+      "confidence": 7,
+      "rationale": "Larsen & Toubro secured a 'large' offshore order from ONGC, bolstering its order book."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     }
   }
 }
