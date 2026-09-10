@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-10T08:31:59.107176+00:00",
+  "generated_at": "2026-09-10T10:30:38.280418+00:00",
   "market": {
-    "sentiment": "neutral",
+    "sentiment": "bearish",
     "confidence": 5,
-    "rationale": "Sensex and Nifty are trading sideways amid strong domestic equity mutual fund inflows offset by rising US Treasury yields and geopolitical tensions in the Middle East."
+    "rationale": "Nifty is trading lower below key levels pressured by auto share declines, coupled with mixed global cues, inflation fears, and domestic technical glitches causing trading disruptions."
   },
   "stocks": {
     "RELIANCE": {
@@ -52,9 +52,9 @@
       "rationale": "No headlines available."
     },
     "AXISBANK": {
-      "sentiment": "neutral",
+      "sentiment": "bullish",
       "confidence": 4,
-      "rationale": "CEO's AI adoption push points to slower hiring and potential cost efficiency, but near-term market impact is limited."
+      "rationale": "CEO's AI push signalling slower hiring suggests anticipated cost rationalization and operating efficiency improvements over the medium term."
     }
   }
 }
