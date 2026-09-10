@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-09T08:31:48.443131+00:00",
+  "generated_at": "2026-09-10T08:31:59.107176+00:00",
   "market": {
     "sentiment": "neutral",
     "confidence": 5,
-    "rationale": "Macro headwinds from elevated US bond yields near 5%, UK gilt pressures, and rupee weakness driven by rising crude oil are offset by positive stock-specific domestic momentum and order wins."
+    "rationale": "Sensex and Nifty are trading sideways amid strong domestic equity mutual fund inflows offset by rising US Treasury yields and geopolitical tensions in the Middle East."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "LT": {
-      "sentiment": "bullish",
-      "confidence": 7,
-      "rationale": "Larsen & Toubro secured a 'large' offshore order from ONGC, bolstering its order book."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "confidence": 4,
+      "rationale": "CEO's AI adoption push points to slower hiring and potential cost efficiency, but near-term market impact is limited."
     }
   }
 }
