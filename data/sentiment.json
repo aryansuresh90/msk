@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-11T03:29:24.341862+00:00",
+  "generated_at": "2026-09-11T05:28:10.681647+00:00",
   "market": {
     "sentiment": "bearish",
-    "confidence": 7,
-    "rationale": "GIFT Nifty indicates a 100-point decline amid falling Asian markets, driven by rising bond yields and crude oil climbing above $100."
+    "confidence": 8,
+    "rationale": "Key indices are trading with major losses driven by surging crude oil prices, sharp depreciation of the rupee, heavy FII selling, and severe pressure across banking, cement, and metal sectors."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "TCS": {
       "sentiment": "bearish",
-      "confidence": 5,
-      "rationale": "Proposal by the US administration to eliminate the grace period for H-1B visa holders creates policy friction for Indian IT service firms."
+      "confidence": 6,
+      "rationale": "Regulatory overhang from proposed Trump administration changes to eliminate the grace period for H-1B visa holders poses a headwind for Indian IT service firms."
     },
     "HDFCBANK": {
-      "sentiment": "bullish",
-      "confidence": 4,
-      "rationale": "Partnership with NPCI to launch a sovereign AI retail banking model presents positive strategic development, despite US ADR decline."
+      "sentiment": "bearish",
+      "confidence": 6,
+      "rationale": "Headwinds from significant drops in foreign institutional holding, falling US ADRs, and broader weakness hitting the banking sector outweigh long-term digital initiatives with NPCI."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "INFY": {
       "sentiment": "bearish",
-      "confidence": 5,
-      "rationale": "Proposed tightening of H-1B visa grace period rules poses regulatory headwinds for operational staffing in the US."
+      "confidence": 6,
+      "rationale": "Proposed restrictions eliminating H-1B visa grace periods present regulatory and operational risks for major IT exporters."
     },
     "SBIN": {
       "sentiment": "bullish",
       "confidence": 4,
-      "rationale": "Management indicated that growing data center infrastructure demand is supporting the ongoing capex cycle, signaling lending growth."
+      "rationale": "Management expressed optimism regarding data center investments driving India's corporate capex cycle, though overall banking sector headwinds may cap upside."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No specific headlines available."
+      "rationale": "No headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific market-moving headlines available."
+      "rationale": "No headlines available."
     }
   }
 }
