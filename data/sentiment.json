@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-11T06:35:55.676168+00:00",
+  "generated_at": "2026-09-11T08:33:04.100198+00:00",
   "market": {
     "sentiment": "bearish",
-    "confidence": 7,
-    "rationale": "Nifty dropped below 23,350 pressured by heavy selling in metal and realty sectors (-4.5%), alongside HDFC Bank hitting a fresh 52-week low amid rising rate hike concerns."
+    "confidence": 5,
+    "rationale": "Domestic benchmarks came off intraday highs under pressure from declines in PSU bank stocks, rising crude oil risk concerns, and weak Asian market cues."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No news available."
     },
     "TCS": {
       "sentiment": "bearish",
       "confidence": 5,
-      "rationale": "US proposal to eliminate the grace period for H-1B visa holders following job loss poses operational and staffing headwinds for Indian IT exporters."
+      "rationale": "Proposed elimination of the H-1B grace period by the US administration presents operational and talent retention headwinds for Indian IT exporters."
     },
     "HDFCBANK": {
-      "sentiment": "bearish",
-      "confidence": 7,
-      "rationale": "Shares hit a fresh 52-week low slipping 2% despite favorable legal outcomes in Bahrain, compounded by declining US ADRs."
+      "sentiment": "bullish",
+      "confidence": 4,
+      "rationale": "Tie-up with NPCI to launch a sovereign AI retail banking model indicates positive digital innovation, despite broader US ADR softness."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No news available."
     },
     "INFY": {
       "sentiment": "bearish",
       "confidence": 5,
-      "rationale": "Proposed elimination of the H-1B post-termination grace period introduces immigration uncertainty for major IT services firms."
+      "rationale": "US policy proposal to scrap the H-1B visa post-job loss grace period raises regulatory and staffing risks for Indian IT firms."
     },
     "SBIN": {
-      "sentiment": "bullish",
-      "confidence": 7,
-      "rationale": "NSE IPO progression is set to deliver an estimated Rs 2,850 crore windfall gain on SBI's original low-cost investment stake."
+      "sentiment": "neutral",
+      "confidence": 3,
+      "rationale": "Optimistic commentary on data center investments driving capex is balanced by overall selling pressure seen in PSU banking peers."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No news available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No news available."
     },
     "LT": {
       "sentiment": "neutral",
-      "confidence": 2,
-      "rationale": "Market headlines noted a sudden spurt in trading volume, but with no directional bias or dedicated operational updates."
+      "confidence": 0,
+      "rationale": "No news available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No news available."
     }
   }
 }
