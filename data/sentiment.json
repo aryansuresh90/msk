@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-10T10:30:38.280418+00:00",
+  "generated_at": "2026-09-11T03:29:24.341862+00:00",
   "market": {
     "sentiment": "bearish",
-    "confidence": 5,
-    "rationale": "Nifty is trading lower below key levels pressured by auto share declines, coupled with mixed global cues, inflation fears, and domestic technical glitches causing trading disruptions."
+    "confidence": 7,
+    "rationale": "GIFT Nifty indicates a 100-point decline amid falling Asian markets, driven by rising bond yields and crude oil climbing above $100."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "TCS": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bearish",
+      "confidence": 5,
+      "rationale": "Proposal by the US administration to eliminate the grace period for H-1B visa holders creates policy friction for Indian IT service firms."
     },
     "HDFCBANK": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bullish",
+      "confidence": 4,
+      "rationale": "Partnership with NPCI to launch a sovereign AI retail banking model presents positive strategic development, despite US ADR decline."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "INFY": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bearish",
+      "confidence": 5,
+      "rationale": "Proposed tightening of H-1B visa grace period rules poses regulatory headwinds for operational staffing in the US."
     },
     "SBIN": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bullish",
+      "confidence": 4,
+      "rationale": "Management indicated that growing data center infrastructure demand is supporting the ongoing capex cycle, signaling lending growth."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "AXISBANK": {
-      "sentiment": "bullish",
-      "confidence": 4,
-      "rationale": "CEO's AI push signalling slower hiring suggests anticipated cost rationalization and operating efficiency improvements over the medium term."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No company-specific market-moving headlines available."
     }
   }
 }
