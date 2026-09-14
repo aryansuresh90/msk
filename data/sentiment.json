@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-11T10:32:26.803324+00:00",
+  "generated_at": "2026-09-14T03:32:47.077206+00:00",
   "market": {
-    "sentiment": "bullish",
-    "confidence": 6,
-    "rationale": "Nifty recovered over 700 points from intraday lows to regain the 23,400 mark, supported by positive European market cues and broad short-covering."
+    "sentiment": "bearish",
+    "confidence": 7,
+    "rationale": "Crude oil surging near $108/bbl on Middle East escalation triggers inflation and rate hike concerns, compounded by persistent FPI selling and declines across Asian markets, despite short-term oversold technical indicators."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "TCS": {
-      "sentiment": "bearish",
-      "confidence": 5,
-      "rationale": "Proposed elimination of the H-1B visa grace period under the US administration poses operational and talent mobility headwinds for Indian IT exporters."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
     },
     "HDFCBANK": {
-      "sentiment": "bullish",
-      "confidence": 4,
-      "rationale": "Partnership with NPCI to launch a sovereign AI retail banking model supports innovation, though offset slightly by weakness in US ADRs overnight."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "INFY": {
-      "sentiment": "bearish",
-      "confidence": 5,
-      "rationale": "Headwinds surrounding proposed US regulatory tightening on H-1B grace periods weigh on IT sector sentiment."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
     },
     "SBIN": {
-      "sentiment": "bullish",
-      "confidence": 6,
-      "rationale": "NSE's $46 billion IPO valuation target promises significant value unlocking for key stake-holding banks, alongside positive commentary on data-center-driven capex."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     }
   }
 }
