@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-14T06:38:23.547838+00:00",
+  "generated_at": "2026-09-14T08:32:47.165813+00:00",
   "market": {
     "sentiment": "bearish",
-    "confidence": 7,
-    "rationale": "Persistent heavy FII selling, soaring bond yields, and jumping crude oil prices due to Middle East tensions are raising inflation and rate hike concerns, putting broad downward pressure on equities."
+    "confidence": 8,
+    "rationale": "Sustained heavy foreign institutional selling (over Rs 14,000 crore in September), rising crude oil prices following Middle East strikes, and climbing bond yields fueling inflation and rate hike concerns across Asian markets."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available this run"
+      "rationale": "No company-specific headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available this run"
+      "rationale": "No company-specific headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available this run"
+      "rationale": "No company-specific headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available this run"
+      "rationale": "No company-specific headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available this run"
+      "rationale": "No company-specific headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available this run"
+      "rationale": "No company-specific headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available this run"
+      "rationale": "No company-specific headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available this run"
+      "rationale": "No company-specific headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available this run"
+      "rationale": "No company-specific headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available this run"
+      "rationale": "No company-specific headlines available."
     }
   }
 }
