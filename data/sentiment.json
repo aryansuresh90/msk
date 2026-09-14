@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-14T05:28:24.259604+00:00",
+  "generated_at": "2026-09-14T06:38:23.547838+00:00",
   "market": {
     "sentiment": "bearish",
-    "confidence": 8,
-    "rationale": "Global cues are distinctly negative with rising US rate hike fears, surging oil prices amid Middle East supply disruption concerns, broad declines across Asian markets, and significant FPI outflows of \u20b913,138 crore."
+    "confidence": 7,
+    "rationale": "Persistent heavy FII selling, soaring bond yields, and jumping crude oil prices due to Middle East tensions are raising inflation and rate hike concerns, putting broad downward pressure on equities."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available"
+      "rationale": "No headlines available this run"
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available"
+      "rationale": "No headlines available this run"
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available"
+      "rationale": "No headlines available this run"
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available"
+      "rationale": "No headlines available this run"
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available"
+      "rationale": "No headlines available this run"
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available"
+      "rationale": "No headlines available this run"
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available"
+      "rationale": "No headlines available this run"
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available"
+      "rationale": "No headlines available this run"
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available"
+      "rationale": "No headlines available this run"
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available"
+      "rationale": "No headlines available this run"
     }
   }
 }
