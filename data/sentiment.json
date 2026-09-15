@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-14T10:30:07.178462+00:00",
+  "generated_at": "2026-09-15T04:31:59.091438+00:00",
   "market": {
-    "sentiment": "bearish",
-    "confidence": 6,
-    "rationale": "Global headwinds dominate sentiment with surging crude oil prices triggered by Middle East tensions, Asian and European market declines, inflation/rate hike worries, and significant FPI outflows of \u20b913,138 crore in September, despite BofA turning bullish on Nifty."
+    "sentiment": "bullish",
+    "confidence": 7,
+    "rationale": "Sensex and Nifty are rebounding, heavily propelled by a 5% rally across the Nifty IT index, despite mixed market breadth and rising retail inflation."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "TCS": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bullish",
+      "confidence": 7,
+      "rationale": "TCS rallied alongside other major IT peers as the Nifty IT pack surged up to 5% on global sentiment shifts."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "confidence": 1,
+      "rationale": "Appeared in a general stock alert headline with no actionable or directionally clear catalyst provided."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "INFY": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bullish",
+      "confidence": 7,
+      "rationale": "Infosys shares soared up to 6% in domestic trade leading the IT pack rebound, outweighing older overnight ADR softness."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "The bond tokenization news is macro/industry-level and not a direct, market-moving catalyst for Larsen & Toubro."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     }
   }
 }
