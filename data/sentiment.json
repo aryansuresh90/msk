@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-17T05:29:14.812655+00:00",
+  "generated_at": "2026-09-17T06:37:09.328394+00:00",
   "market": {
-    "sentiment": "bullish",
-    "confidence": 6,
-    "rationale": "Nifty is trading steadily near 23,290 led by gains in realty shares, alongside robust primary market sentiment marked by strong IPO listings and enthusiasm around the NSE IPO, offsetting slight currency weakness."
+    "sentiment": "neutral",
+    "confidence": 5,
+    "rationale": "Indices trade sideways to modestly higher (Nifty above 23,300, auto stocks gaining), but macro headwinds loom with a US Fed rate hike, bond yields under pressure, and warnings that bears could pounce amid mixed global cues."
   },
   "stocks": {
     "RELIANCE": {
@@ -28,8 +28,8 @@
     },
     "INFY": {
       "sentiment": "neutral",
-      "confidence": 1,
-      "rationale": "Headline concerns a former chief's startup funding, with no direct material impact on Infosys."
+      "confidence": 0,
+      "rationale": "Headline relates to a former executive's AI startup funding and has no direct material impact on Infosys."
     },
     "SBIN": {
       "sentiment": "neutral",
