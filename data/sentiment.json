@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-17T06:37:09.328394+00:00",
+  "generated_at": "2026-09-17T07:30:51.195896+00:00",
   "market": {
-    "sentiment": "neutral",
-    "confidence": 5,
-    "rationale": "Indices trade sideways to modestly higher (Nifty above 23,300, auto stocks gaining), but macro headwinds loom with a US Fed rate hike, bond yields under pressure, and warnings that bears could pounce amid mixed global cues."
+    "sentiment": "bullish",
+    "confidence": 6,
+    "rationale": "Sensex and Nifty posted gains of 200-282 points trading above 23,300, supported by metal shares and domestic resilience, despite global headwinds and Fed rate hike concerns."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Headline relates to a former executive's AI startup funding and has no direct material impact on Infosys."
+      "rationale": "Headline pertains to a former executive's separate AI startup, offering no direct market-moving impact on Infosys."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     }
   }
 }
