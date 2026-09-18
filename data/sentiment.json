@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-18T04:29:31.024531+00:00",
+  "generated_at": "2026-09-18T08:31:31.978734+00:00",
   "market": {
-    "sentiment": "neutral",
+    "sentiment": "bullish",
     "confidence": 5,
-    "rationale": "Conflicting cues as indices edged higher in early trade with strong breadth, despite headwinds from heavy FPI selling in September and sharp declines across major Tata group stocks due to leadership disputes."
+    "rationale": "Nifty regained the 23,300 level supported by gains in midcaps and smallcaps, though broader global macro signals remain mixed with stagflation concerns offset by easing yields."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "TCS": {
-      "sentiment": "bearish",
-      "confidence": 8,
-      "rationale": "TCS tumbled up to 8% alongside other Tata group stocks following reports of Tata Trusts challenging the legality of Chairman N Chandrasekaran's tenure extension."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Reported headlines pertain to Japan-based SBI Holdings rather than State Bank of India."
+      "rationale": "Headlines refer to Japan's SBI Holdings crypto/stablecoin initiatives rather than State Bank of India."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No news available."
+      "rationale": "No headlines available."
     }
   }
 }
