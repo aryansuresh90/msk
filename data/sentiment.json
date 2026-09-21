@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-21T03:30:10.094994+00:00",
+  "generated_at": "2026-09-21T05:28:56.950992+00:00",
   "market": {
-    "sentiment": "neutral",
-    "confidence": 5,
-    "rationale": "Global cues are mildly positive with lower crude oil prices and gains in Asian markets, but GIFT Nifty indicates a tepid start while domestic indices test key support levels near 23,000."
+    "sentiment": "bullish",
+    "confidence": 6,
+    "rationale": "Sensex posted gains of 357 points led by demand in pharma shares, providing positive domestic momentum despite lingering US interest rate concerns."
   },
   "stocks": {
     "RELIANCE": {
