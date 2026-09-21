@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-21T05:28:56.950992+00:00",
+  "generated_at": "2026-09-21T06:37:55.382435+00:00",
   "market": {
     "sentiment": "bullish",
-    "confidence": 6,
-    "rationale": "Sensex posted gains of 357 points led by demand in pharma shares, providing positive domestic momentum despite lingering US interest rate concerns."
+    "confidence": 7,
+    "rationale": "Indian indices gained ground with Sensex up 400 points and Nifty approaching 23,400, supported by cooling crude oil prices and strength in FMCG stocks despite global rate concerns."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No headlines available in the stock section."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No headlines available in the stock section."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No headlines available in the stock section."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No headlines available in the stock section."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No headlines available in the stock section."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No headlines available in the stock section."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No headlines available in the stock section."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No headlines available in the stock section."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No headlines available in the stock section."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No headlines available in the stock section."
     }
   }
 }
