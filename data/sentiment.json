@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-21T08:30:44.853481+00:00",
+  "generated_at": "2026-09-21T09:30:51.921151+00:00",
   "market": {
     "sentiment": "bullish",
-    "confidence": 6,
-    "rationale": "Sensex and Nifty are trading higher led by realty shares, supported by softening crude oil prices and reports of FII stake increases in select equities, despite weakness in the IT sector."
+    "confidence": 7,
+    "rationale": "Sensex surged 690 points intraday with Nifty reclaiming 23,400, supported by falling oil prices and positive European cues lifting broader risk appetite."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No news headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No specific headlines available in stock feed."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "The Apple Pay launch report specifically highlights Axis Bank, with no direct material impact noted for HDFC Bank."
+      "rationale": "Provided headline relates to a competitor partnership (Axis Bank) without direct impact on HDFC Bank."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No direct company-specific developments mentioned."
+      "rationale": "Provided headline relates to a competitor partnership (Axis Bank) without direct impact on ICICI Bank."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in the designated feed."
+      "rationale": "No news headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No news headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No news headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No news headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No news headlines available."
     },
     "AXISBANK": {
       "sentiment": "bullish",
       "confidence": 6,
-      "rationale": "Reports indicate Apple Pay is set to launch in India next month in partnership with Axis Bank, presenting a positive catalyst for its digital payments and cards business."
+      "rationale": "Reports indicate Apple Pay is set to launch in India next month partnering with Axis Bank, which could drive transaction volumes and fee income."
     }
   }
 }
