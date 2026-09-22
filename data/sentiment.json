@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-22T07:29:28.831283+00:00",
+  "generated_at": "2026-09-22T10:31:04.064972+00:00",
   "market": {
-    "sentiment": "bearish",
+    "sentiment": "bullish",
     "confidence": 6,
-    "rationale": "Nifty trades below the 23,400 mark with PSU banks declining for a second day, alongside strengthening expectations of an RBI rate hike putting pressure on equities."
+    "rationale": "Strong domestic momentum highlighted by robust primary market activity (NSE IPO interest, SEBI's Rs 2 lakh crore fundraising outlook) and strength in large-cap banking like HDFC Bank, partially balanced by rising global oil prices above $100."
   },
   "stocks": {
     "RELIANCE": {
@@ -19,12 +19,12 @@
     "HDFCBANK": {
       "sentiment": "bullish",
       "confidence": 7,
-      "rationale": "Shares hit a 7-week high amid reports that the RBI is weighing Anup Bagchi for the CEO position."
+      "rationale": "Added Rs 93,000 crore to market cap on sustained momentum, advancing in 7 out of 8 recent sessions."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No direct or impactful company-specific news reported."
+      "rationale": "No directly relevant company-specific headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
@@ -32,14 +32,14 @@
       "rationale": "No company-specific headlines available."
     },
     "SBIN": {
-      "sentiment": "bearish",
-      "confidence": 5,
-      "rationale": "Sectoral pressure as PSU Bank shares extend declines for the second straight session."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No company-specific headlines available."
     },
     "BHARTIARTL": {
-      "sentiment": "bullish",
-      "confidence": 6,
-      "rationale": "Airtel enhances postpaid plan value proposition by bundling Apple services including iCloud+, Apple TV, and Apple Arcade."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No company-specific headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
@@ -54,7 +54,7 @@
     "AXISBANK": {
       "sentiment": "bullish",
       "confidence": 7,
-      "rationale": "Reports indicate Apple Pay is set to debut in India next month in partnership with Axis Bank."
+      "rationale": "Reported to be the launch partner for Apple Pay's upcoming rollout in India next month."
     }
   }
 }
