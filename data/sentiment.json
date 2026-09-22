@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-22T03:29:21.868795+00:00",
+  "generated_at": "2026-09-22T05:28:20.352591+00:00",
   "market": {
     "sentiment": "bullish",
     "confidence": 6,
-    "rationale": "GIFT Nifty signals a positive opening tracked by gains across Asian tech stocks, alongside easing Treasury yields, though crude oil near $101/bbl remains a watchpoint."
+    "rationale": "Market sentiment is supported by a pullback in crude oil prices, a stronger INR, easing geopolitical tensions, and healthy order flow across renewable energy, manufacturing, and defence sectors."
   },
   "stocks": {
     "RELIANCE": {
@@ -19,12 +19,12 @@
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Provided headlines do not contain material information pertaining to HDFC Bank."
+      "rationale": "No direct or market-moving headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Provided headlines do not contain material information pertaining to ICICI Bank."
+      "rationale": "No company-specific headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
@@ -53,8 +53,8 @@
     },
     "AXISBANK": {
       "sentiment": "bullish",
-      "confidence": 7,
-      "rationale": "Reported partnership for Apple Pay's anticipated India launch next month, paired with favorable preference commentary from Kotak Securities."
+      "confidence": 6,
+      "rationale": "Reports indicate Apple Pay is set to make its debut in India next month in partnership with Axis Bank, marking a positive catalyst for its payments ecosystem."
     }
   }
 }
