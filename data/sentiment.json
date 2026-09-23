@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-23T04:29:42.066868+00:00",
+  "generated_at": "2026-09-23T07:31:15.522941+00:00",
   "market": {
     "sentiment": "bullish",
-    "confidence": 6,
-    "rationale": "Nifty trading above 23,350 with strong market breadth in early trade, balancing out muted opening signals and mixed global sentiment."
+    "confidence": 8,
+    "rationale": "Sensex and Nifty posted gains with Nifty trading above 23,400, supported by falling oil prices, strong private sector PMI data, and broad sector gains in metals and realty."
   },
   "stocks": {
     "RELIANCE": {
@@ -19,7 +19,7 @@
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Headlines provided do not mention or materially impact HDFC Bank."
+      "rationale": "Headline mentions Microsoft datacenter expansion in Hyderabad, which is unrelated and not market-moving for HDFC Bank."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
@@ -39,7 +39,7 @@
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No direct company-specific headlines available in section."
     },
     "ITC": {
       "sentiment": "neutral",
@@ -54,7 +54,7 @@
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Headline mentions Apple Pay debut in India with no direct confirmed catalyst for Axis Bank."
+      "rationale": "No headlines available."
     }
   }
 }
