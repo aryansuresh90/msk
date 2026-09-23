@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-22T10:31:04.064972+00:00",
+  "generated_at": "2026-09-23T04:29:42.066868+00:00",
   "market": {
     "sentiment": "bullish",
     "confidence": 6,
-    "rationale": "Strong domestic momentum highlighted by robust primary market activity (NSE IPO interest, SEBI's Rs 2 lakh crore fundraising outlook) and strength in large-cap banking like HDFC Bank, partially balanced by rising global oil prices above $100."
+    "rationale": "Nifty trading above 23,350 with strong market breadth in early trade, balancing out muted opening signals and mixed global sentiment."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "HDFCBANK": {
-      "sentiment": "bullish",
-      "confidence": 7,
-      "rationale": "Added Rs 93,000 crore to market cap on sustained momentum, advancing in 7 out of 8 recent sessions."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "Headlines provided do not mention or materially impact HDFC Bank."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No directly relevant company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "AXISBANK": {
-      "sentiment": "bullish",
-      "confidence": 7,
-      "rationale": "Reported to be the launch partner for Apple Pay's upcoming rollout in India next month."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "Headline mentions Apple Pay debut in India with no direct confirmed catalyst for Axis Bank."
     }
   }
 }
