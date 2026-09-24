@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-24T04:31:07.359778+00:00",
+  "generated_at": "2026-09-24T04:54:30.675620+00:00",
   "market_regime": "bear",
   "regime_gate_open": false,
   "regime_detail": {
-    "nifty_ltp": 23227.0,
+    "nifty_ltp": 23204.6,
     "above_sma50": false,
     "above_sma200": false,
-    "india_vix": 11.37,
+    "india_vix": 11.44,
     "vix_ok": true
   },
   "min_confirms_required": 3,
@@ -14,7 +14,7 @@
     {
       "symbol": "ADANIPORTS",
       "sector": "Infra",
-      "ltp": 1787.0,
+      "ltp": 1786.4000244140625,
       "confluence_passed": false,
       "confluence_score": 3,
       "confirms_passed": 2,
@@ -33,9 +33,30 @@
       ]
     },
     {
+      "symbol": "CIPLA",
+      "sector": "Pharma",
+      "ltp": 1387.5999755859375,
+      "confluence_passed": false,
+      "confluence_score": 3,
+      "confirms_passed": 3,
+      "categories": {
+        "trend": false,
+        "breakout_volume": false,
+        "momentum": true,
+        "relative_strength": true,
+        "trend_strength": true,
+        "sentiment": false
+      },
+      "sentiment": "neutral",
+      "veto_bearish_news": false,
+      "blocked_reasons": [
+        "market regime gate closed"
+      ]
+    },
+    {
       "symbol": "COALINDIA",
       "sector": "Energy",
-      "ltp": 421.1499938964844,
+      "ltp": 420.6499938964844,
       "confluence_passed": false,
       "confluence_score": 3,
       "confirms_passed": 2,
@@ -56,7 +77,7 @@
     {
       "symbol": "ETERNAL",
       "sector": "Consumer",
-      "ltp": 343.04998779296875,
+      "ltp": 341.70001220703125,
       "confluence_passed": false,
       "confluence_score": 3,
       "confirms_passed": 2,
@@ -77,7 +98,7 @@
     {
       "symbol": "ITC",
       "sector": "FMCG",
-      "ltp": 269.45001220703125,
+      "ltp": 269.29998779296875,
       "confluence_passed": false,
       "confluence_score": 3,
       "confirms_passed": 3,
@@ -98,7 +119,7 @@
     {
       "symbol": "SBILIFE",
       "sector": "Insurance",
-      "ltp": 1788.699951171875,
+      "ltp": 1765.0,
       "confluence_passed": false,
       "confluence_score": 3,
       "confirms_passed": 3,
@@ -119,7 +140,7 @@
     {
       "symbol": "APOLLOHOSP",
       "sector": "Healthcare",
-      "ltp": 8987.5,
+      "ltp": 9000.5,
       "confluence_passed": false,
       "confluence_score": 2,
       "confirms_passed": 2,
@@ -138,9 +159,9 @@
       ]
     },
     {
-      "symbol": "CIPLA",
+      "symbol": "DRREDDY",
       "sector": "Pharma",
-      "ltp": 1376.800048828125,
+      "ltp": 1208.0,
       "confluence_passed": false,
       "confluence_score": 2,
       "confirms_passed": 2,
@@ -159,9 +180,9 @@
       ]
     },
     {
-      "symbol": "DRREDDY",
-      "sector": "Pharma",
-      "ltp": 1207.5,
+      "symbol": "GRASIM",
+      "sector": "Cement",
+      "ltp": 3186.199951171875,
       "confluence_passed": false,
       "confluence_score": 2,
       "confirms_passed": 2,
@@ -182,7 +203,7 @@
     {
       "symbol": "HCLTECH",
       "sector": "IT",
-      "ltp": 1255.4000244140625,
+      "ltp": 1256.199951171875,
       "confluence_passed": false,
       "confluence_score": 2,
       "confirms_passed": 2,
@@ -203,7 +224,7 @@
     {
       "symbol": "HDFCBANK",
       "sector": "Banking",
-      "ltp": 727.2000122070312,
+      "ltp": 727.1500244140625,
       "confluence_passed": false,
       "confluence_score": 2,
       "confirms_passed": 2,
@@ -222,30 +243,9 @@
       ]
     },
     {
-      "symbol": "INDIGO",
-      "sector": "Aviation",
-      "ltp": 4957.0,
-      "confluence_passed": false,
-      "confluence_score": 2,
-      "confirms_passed": 2,
-      "categories": {
-        "trend": false,
-        "breakout_volume": false,
-        "momentum": true,
-        "relative_strength": false,
-        "trend_strength": true,
-        "sentiment": false
-      },
-      "sentiment": "neutral",
-      "veto_bearish_news": false,
-      "blocked_reasons": [
-        "market regime gate closed"
-      ]
-    },
-    {
       "symbol": "KOTAKBANK",
       "sector": "Banking",
-      "ltp": 408.45001220703125,
+      "ltp": 408.0,
       "confluence_passed": false,
       "confluence_score": 2,
       "confirms_passed": 2,
@@ -266,7 +266,7 @@
     {
       "symbol": "MAXHEALTH",
       "sector": "Healthcare",
-      "ltp": 1042.699951171875,
+      "ltp": 1048.5999755859375,
       "confluence_passed": false,
       "confluence_score": 2,
       "confirms_passed": 2,
@@ -287,7 +287,7 @@
     {
       "symbol": "ONGC",
       "sector": "Energy",
-      "ltp": 235.7100067138672,
+      "ltp": 235.52000427246094,
       "confluence_passed": false,
       "confluence_score": 2,
       "confirms_passed": 2,
@@ -308,7 +308,7 @@
     {
       "symbol": "TATASTEEL",
       "sector": "Metals",
-      "ltp": 190.02999877929688,
+      "ltp": 189.8699951171875,
       "confluence_passed": false,
       "confluence_score": 2,
       "confirms_passed": 2,
@@ -329,7 +329,7 @@
     {
       "symbol": "ULTRACEMCO",
       "sector": "Cement",
-      "ltp": 11127.0,
+      "ltp": 11139.0,
       "confluence_passed": false,
       "confluence_score": 2,
       "confirms_passed": 2,
@@ -350,7 +350,7 @@
     {
       "symbol": "ASIANPAINT",
       "sector": "Consumer",
-      "ltp": 2426.199951171875,
+      "ltp": 2430.0,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -371,7 +371,7 @@
     {
       "symbol": "BAJAJ-AUTO",
       "sector": "Auto",
-      "ltp": 11329.0,
+      "ltp": 11294.0,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -392,7 +392,7 @@
     {
       "symbol": "BAJFINANCE",
       "sector": "Financials",
-      "ltp": 996.2000122070312,
+      "ltp": 996.0,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -413,7 +413,7 @@
     {
       "symbol": "BAJAJFINSV",
       "sector": "Financials",
-      "ltp": 1798.0,
+      "ltp": 1787.4000244140625,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -434,7 +434,7 @@
     {
       "symbol": "BHARTIARTL",
       "sector": "Telecom",
-      "ltp": 1816.699951171875,
+      "ltp": 1814.5,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -455,28 +455,7 @@
     {
       "symbol": "EICHERMOT",
       "sector": "Auto",
-      "ltp": 7413.5,
-      "confluence_passed": false,
-      "confluence_score": 1,
-      "confirms_passed": 1,
-      "categories": {
-        "trend": false,
-        "breakout_volume": false,
-        "momentum": false,
-        "relative_strength": false,
-        "trend_strength": true,
-        "sentiment": false
-      },
-      "sentiment": "neutral",
-      "veto_bearish_news": false,
-      "blocked_reasons": [
-        "market regime gate closed"
-      ]
-    },
-    {
-      "symbol": "GRASIM",
-      "sector": "Cement",
-      "ltp": 3168.39990234375,
+      "ltp": 7405.0,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -497,7 +476,7 @@
     {
       "symbol": "HINDUNILVR",
       "sector": "FMCG",
-      "ltp": 1932.199951171875,
+      "ltp": 1928.5999755859375,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -518,7 +497,28 @@
     {
       "symbol": "ICICIBANK",
       "sector": "Banking",
-      "ltp": 1339.300048828125,
+      "ltp": 1335.5999755859375,
+      "confluence_passed": false,
+      "confluence_score": 1,
+      "confirms_passed": 1,
+      "categories": {
+        "trend": false,
+        "breakout_volume": false,
+        "momentum": false,
+        "relative_strength": false,
+        "trend_strength": true,
+        "sentiment": false
+      },
+      "sentiment": "neutral",
+      "veto_bearish_news": false,
+      "blocked_reasons": [
+        "market regime gate closed"
+      ]
+    },
+    {
+      "symbol": "INDIGO",
+      "sector": "Aviation",
+      "ltp": 4944.0,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -539,7 +539,7 @@
     {
       "symbol": "JIOFIN",
       "sector": "Financials",
-      "ltp": 229.89999389648438,
+      "ltp": 229.75,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -560,7 +560,7 @@
     {
       "symbol": "JSWSTEEL",
       "sector": "Metals",
-      "ltp": 1286.5999755859375,
+      "ltp": 1287.699951171875,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -581,7 +581,7 @@
     {
       "symbol": "M&M",
       "sector": "Auto",
-      "ltp": 3013.10009765625,
+      "ltp": 3012.60009765625,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -602,7 +602,7 @@
     {
       "symbol": "MARUTI",
       "sector": "Auto",
-      "ltp": 12127.0,
+      "ltp": 12109.0,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -623,7 +623,7 @@
     {
       "symbol": "NESTLEIND",
       "sector": "FMCG",
-      "ltp": 1372.199951171875,
+      "ltp": 1372.0,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -644,7 +644,7 @@
     {
       "symbol": "NTPC",
       "sector": "Energy",
-      "ltp": 325.8999938964844,
+      "ltp": 325.20001220703125,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -665,7 +665,7 @@
     {
       "symbol": "POWERGRID",
       "sector": "Energy",
-      "ltp": 267.6499938964844,
+      "ltp": 267.79998779296875,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -686,7 +686,7 @@
     {
       "symbol": "RELIANCE",
       "sector": "Energy",
-      "ltp": 1237.800048828125,
+      "ltp": 1237.199951171875,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -707,7 +707,7 @@
     {
       "symbol": "SHRIRAMFIN",
       "sector": "Financials",
-      "ltp": 1002.5999755859375,
+      "ltp": 1001.2999877929688,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -728,7 +728,7 @@
     {
       "symbol": "SBIN",
       "sector": "Banking",
-      "ltp": 986.2999877929688,
+      "ltp": 985.5999755859375,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -749,7 +749,7 @@
     {
       "symbol": "SUNPHARMA",
       "sector": "Pharma",
-      "ltp": 1866.0,
+      "ltp": 1867.4000244140625,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -770,7 +770,7 @@
     {
       "symbol": "TATACONSUM",
       "sector": "FMCG",
-      "ltp": 987.2000122070312,
+      "ltp": 985.4000244140625,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -791,7 +791,7 @@
     {
       "symbol": "TMPV",
       "sector": "Auto",
-      "ltp": 299.0,
+      "ltp": 298.8999938964844,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -812,7 +812,7 @@
     {
       "symbol": "TECHM",
       "sector": "IT",
-      "ltp": 1566.800048828125,
+      "ltp": 1559.5999755859375,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -833,7 +833,7 @@
     {
       "symbol": "TITAN",
       "sector": "Consumer",
-      "ltp": 4882.0,
+      "ltp": 4881.0,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -854,7 +854,7 @@
     {
       "symbol": "TRENT",
       "sector": "Retail",
-      "ltp": 2757.89990234375,
+      "ltp": 2755.5,
       "confluence_passed": false,
       "confluence_score": 1,
       "confirms_passed": 1,
@@ -875,7 +875,7 @@
     {
       "symbol": "ADANIENT",
       "sector": "Conglomerate",
-      "ltp": 2964.39990234375,
+      "ltp": 2952.800048828125,
       "confluence_passed": false,
       "confluence_score": 0,
       "confirms_passed": 0,
@@ -896,7 +896,7 @@
     {
       "symbol": "AXISBANK",
       "sector": "Banking",
-      "ltp": 1200.199951171875,
+      "ltp": 1196.0999755859375,
       "confluence_passed": false,
       "confluence_score": 0,
       "confirms_passed": 0,
@@ -917,7 +917,7 @@
     {
       "symbol": "BEL",
       "sector": "Industrials",
-      "ltp": 396.1000061035156,
+      "ltp": 395.20001220703125,
       "confluence_passed": false,
       "confluence_score": 0,
       "confirms_passed": 0,
@@ -938,7 +938,7 @@
     {
       "symbol": "HDFCLIFE",
       "sector": "Insurance",
-      "ltp": 526.2999877929688,
+      "ltp": 525.5,
       "confluence_passed": false,
       "confluence_score": 0,
       "confirms_passed": 0,
@@ -959,7 +959,7 @@
     {
       "symbol": "HINDALCO",
       "sector": "Metals",
-      "ltp": 983.7000122070312,
+      "ltp": 985.2000122070312,
       "confluence_passed": false,
       "confluence_score": 0,
       "confirms_passed": 0,
@@ -980,7 +980,7 @@
     {
       "symbol": "INFY",
       "sector": "IT",
-      "ltp": 1012.7000122070312,
+      "ltp": 1013.2999877929688,
       "confluence_passed": false,
       "confluence_score": 0,
       "confirms_passed": 0,
@@ -1001,7 +1001,7 @@
     {
       "symbol": "LT",
       "sector": "Infra",
-      "ltp": 3884.60009765625,
+      "ltp": 3880.60009765625,
       "confluence_passed": false,
       "confluence_score": 0,
       "confirms_passed": 0,
@@ -1022,7 +1022,7 @@
     {
       "symbol": "TCS",
       "sector": "IT",
-      "ltp": 2081.0,
+      "ltp": 2079.60009765625,
       "confluence_passed": false,
       "confluence_score": 0,
       "confirms_passed": 0,
@@ -1043,7 +1043,7 @@
     {
       "symbol": "WIPRO",
       "sector": "IT",
-      "ltp": 164.00999450683594,
+      "ltp": 164.4600067138672,
       "confluence_passed": false,
       "confluence_score": 0,
       "confirms_passed": 0,
