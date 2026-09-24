@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-23T07:31:15.522941+00:00",
+  "generated_at": "2026-09-24T04:29:54.233975+00:00",
   "market": {
-    "sentiment": "bullish",
+    "sentiment": "bearish",
     "confidence": 8,
-    "rationale": "Sensex and Nifty posted gains with Nifty trading above 23,400, supported by falling oil prices, strong private sector PMI data, and broad sector gains in metals and realty."
+    "rationale": "Sensex dropped over 700 points intraday falling below 23,250 with weak market breadth and widespread declines in insurance and other sectors."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No relevant headlines available."
     },
     "TCS": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bullish",
+      "confidence": 3,
+      "rationale": "Named Jaguar TCS Racing's Official AI Partner, indicating positive technology and brand partnership."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Headline mentions Microsoft datacenter expansion in Hyderabad, which is unrelated and not market-moving for HDFC Bank."
+      "rationale": "No relevant headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No relevant headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No relevant headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No relevant headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No direct company-specific headlines available in section."
+      "rationale": "No relevant headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No relevant headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No relevant headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "Provided headline relates to Cognizant Technology Solutions, with no material news for Axis Bank."
     }
   }
 }
