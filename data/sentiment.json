@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-25T03:28:40.847292+00:00",
+  "generated_at": "2026-09-25T08:31:29.944150+00:00",
   "market": {
     "sentiment": "neutral",
-    "confidence": 5,
-    "rationale": "GIFT Nifty hints at a positive opening and Asian peers are up, but upside is constrained by a sharp 1.6% plunge in the previous session, surging US bond yields, a stronger dollar, and elevated crude oil prices near $106."
+    "confidence": 4,
+    "rationale": "Macro cues are mixed; Indian 10-year bond yields hit a 4-month low amid US debt concerns, balanced by selective positive corporate contract wins and long-term India capex/AI trade commentary by Chris Wood."
   },
   "stocks": {
     "RELIANCE": {
@@ -19,7 +19,7 @@
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 1,
-      "rationale": "Routine comparative value-investing article with no material operational or price-moving catalysts."
+      "rationale": "Routine comparative value analysis headline with no direct impact on near-term stock performance."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
@@ -29,7 +29,7 @@
     "INFY": {
       "sentiment": "bullish",
       "confidence": 4,
-      "rationale": "Announced or highlighted a significant partnership with Chainlink involving 1.7 billion bank accounts, underscoring expanding enterprise digital/blockchain capabilities."
+      "rationale": "Reports highlight Infosys's major partnership deal with Chainlink impacting up to 1.7 billion bank accounts."
     },
     "SBIN": {
       "sentiment": "neutral",
