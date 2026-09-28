@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-28T06:39:27.042607+00:00",
+  "generated_at": "2026-09-28T08:34:00.354187+00:00",
   "market": {
-    "sentiment": "neutral",
-    "confidence": 5,
-    "rationale": "Domestic macroeconomic indicators are positive with net FDI hitting a five-year high and steady rural-urban demand reported by the RBI. However, broader market sentiment faces headwinds from weakness in Asian peers (KOSPI down over 2%) and selling pressure in PSU banking stocks."
+    "sentiment": "bearish",
+    "confidence": 8,
+    "rationale": "Indices are trading with significant losses, pressured by rising 10-year bond yields reaching two-year highs, substantial cumulative FII outflows, and broad global tightening concerns."
   },
   "stocks": {
     "RELIANCE": {
@@ -29,7 +29,7 @@
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "The listed headline relates to cryptocurrency projections and is not relevant to Infosys."
+      "rationale": "Provided headline is unrelated to company operations."
     },
     "SBIN": {
       "sentiment": "neutral",
@@ -54,7 +54,7 @@
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "The listed headline pertains to Apple and is not relevant to Axis Bank."
+      "rationale": "Provided headline is unrelated to company operations."
     }
   }
 }
