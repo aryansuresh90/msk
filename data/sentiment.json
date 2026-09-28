@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-25T08:31:29.944150+00:00",
+  "generated_at": "2026-09-28T03:32:12.943554+00:00",
   "market": {
-    "sentiment": "neutral",
-    "confidence": 4,
-    "rationale": "Macro cues are mixed; Indian 10-year bond yields hit a 4-month low amid US debt concerns, balanced by selective positive corporate contract wins and long-term India capex/AI trade commentary by Chris Wood."
+    "sentiment": "bearish",
+    "confidence": 8,
+    "rationale": "GIFT Nifty indicates a tepid start amid global headwinds, rising crude oil prices due to US-Iran tensions, weak Asian peers, weak technical setup on the Nifty, and significant market wealth erosion recently reported."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
-      "confidence": 1,
-      "rationale": "Routine comparative value analysis headline with no direct impact on near-term stock performance."
+      "confidence": 0,
+      "rationale": "No company-specific headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "INFY": {
-      "sentiment": "bullish",
-      "confidence": 4,
-      "rationale": "Reports highlight Infosys's major partnership deal with Chainlink impacting up to 1.7 billion bank accounts."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No market-moving company-specific news provided; headline was irrelevant cryptocurrency commentary."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "confidence": 1,
+      "rationale": "Mentioned only in a generic morning watch-list without specific catalysts or directional bias."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No market-moving company-specific news provided; headline was irrelevant international tech coverage."
     }
   }
 }
