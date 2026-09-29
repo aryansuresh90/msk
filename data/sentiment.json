@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-09-28T09:34:08.536064+00:00",
+  "generated_at": "2026-09-29T04:31:32.481089+00:00",
   "market": {
     "sentiment": "bearish",
-    "confidence": 6,
-    "rationale": "Nifty slipped below the 22,800 level led by declines in metal shares, alongside falling precious metals and multiple stocks extending multi-day losing streaks."
+    "confidence": 9,
+    "rationale": "Sensex slumped 700 points, breaching key support levels with Nifty below 22,600 amid persistent FPI selling, rising crude oil prices, and the Rupee sliding to a two-month low."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No relevant news headlines available."
+      "rationale": "No headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No relevant news headlines available."
+      "rationale": "No headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No relevant news headlines available."
+      "rationale": "No headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No relevant news headlines available."
+      "rationale": "No headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Reported headline relates to cryptocurrency predictions and does not impact Infosys."
+      "rationale": "The only headline is an analysis of peer Accenture and provides no direct, market-moving information for Infosys."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No relevant news headlines available."
+      "rationale": "No headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No relevant news headlines available."
+      "rationale": "No headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No relevant news headlines available."
+      "rationale": "No headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No relevant news headlines available."
+      "rationale": "No headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "Reported headline relates to Apple Inc. and contains no market-moving information for Axis Bank."
+      "rationale": "No headlines available."
     }
   }
 }
