@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-29T04:31:32.481089+00:00",
+  "generated_at": "2026-10-08T10:39:49.203587+00:00",
   "market": {
     "sentiment": "bearish",
-    "confidence": 9,
-    "rationale": "Sensex slumped 700 points, breaching key support levels with Nifty below 22,600 amid persistent FPI selling, rising crude oil prices, and the Rupee sliding to a two-month low."
+    "confidence": 8,
+    "rationale": "Surging oil prices, inflation worries, rising bond yields globally, and widespread domestic sell-offs in crude-sensitive and Adani Group stocks are exerting strong downward pressure on the market."
   },
   "stocks": {
     "RELIANCE": {
@@ -29,7 +29,7 @@
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "The only headline is an analysis of peer Accenture and provides no direct, market-moving information for Infosys."
+      "rationale": "No headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
