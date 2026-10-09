@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-10-08T10:39:49.203587+00:00",
+  "generated_at": "2026-10-09T10:39:12.632719+00:00",
   "market": {
     "sentiment": "bearish",
-    "confidence": 8,
-    "rationale": "Surging oil prices, inflation worries, rising bond yields globally, and widespread domestic sell-offs in crude-sensitive and Adani Group stocks are exerting strong downward pressure on the market."
+    "confidence": 6,
+    "rationale": "Persistent pressure from surging US Treasury yields and heavy foreign investor outflows ($23.5 billion pulled from Asian equities in September) weigh on sentiment, despite selective domestic strength in FMCG and infrastructure."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "ITC": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bullish",
+      "confidence": 8,
+      "rationale": "Shares rallied 5% in their sharpest intraday gain in six months, supported by sector optimism following GST relief discussions."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No company-specific headlines available."
     }
   }
 }
