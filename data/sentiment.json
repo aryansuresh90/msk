@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-09T10:39:12.632719+00:00",
+  "generated_at": "2026-10-12T10:56:46.934058+00:00",
   "market": {
     "sentiment": "bearish",
     "confidence": 6,
-    "rationale": "Persistent pressure from surging US Treasury yields and heavy foreign investor outflows ($23.5 billion pulled from Asian equities in September) weigh on sentiment, despite selective domestic strength in FMCG and infrastructure."
+    "rationale": "Sensex suffered an 800-point intraday drop amid pressure from oil prices, yields, and weakness in heavyweight Reliance Industries, despite strong domestic mutual fund inflows."
   },
   "stocks": {
     "RELIANCE": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "sentiment": "bearish",
+      "confidence": 8,
+      "rationale": "Headline indicates Reliance Industries hit an 18-month low, down 28% from its January high."
     },
     "TCS": {
       "sentiment": "neutral",
@@ -37,14 +37,14 @@
       "rationale": "No company-specific headlines available."
     },
     "BHARTIARTL": {
+      "sentiment": "bearish",
+      "confidence": 5,
+      "rationale": "Telecom sector faced pressure, sinking up to 13% following news of Starlink's spectrum acquisition."
+    },
+    "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
       "rationale": "No company-specific headlines available."
-    },
-    "ITC": {
-      "sentiment": "bullish",
-      "confidence": 8,
-      "rationale": "Shares rallied 5% in their sharpest intraday gain in six months, supported by sector optimism following GST relief discussions."
     },
     "LT": {
       "sentiment": "neutral",
