@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-10-12T10:56:46.934058+00:00",
+  "generated_at": "2026-10-13T10:42:20.566081+00:00",
   "market": {
-    "sentiment": "bearish",
-    "confidence": 6,
-    "rationale": "Sensex suffered an 800-point intraday drop amid pressure from oil prices, yields, and weakness in heavyweight Reliance Industries, despite strong domestic mutual fund inflows."
+    "sentiment": "neutral",
+    "confidence": 5,
+    "rationale": "Strong domestic rally driven by FM Sitharaman's LTCG tax remarks lifting Sensex by 1,100 points is counterbalanced by global AI rout pressures, Asian chip stock selloffs, and cautious brokerage outlooks ruling out a V-shaped recovery."
   },
   "stocks": {
     "RELIANCE": {
-      "sentiment": "bearish",
-      "confidence": 8,
-      "rationale": "Headline indicates Reliance Industries hit an 18-month low, down 28% from its January high."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "BHARTIARTL": {
-      "sentiment": "bearish",
-      "confidence": 5,
-      "rationale": "Telecom sector faced pressure, sinking up to 13% following news of Starlink's spectrum acquisition."
+      "sentiment": "neutral",
+      "confidence": 0,
+      "rationale": "No headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No headlines available."
     }
   }
 }
