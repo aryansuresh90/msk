@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-13T10:42:20.566081+00:00",
+  "generated_at": "2026-10-14T08:48:28.613421+00:00",
   "market": {
     "sentiment": "neutral",
     "confidence": 5,
-    "rationale": "Strong domestic rally driven by FM Sitharaman's LTCG tax remarks lifting Sensex by 1,100 points is counterbalanced by global AI rout pressures, Asian chip stock selloffs, and cautious brokerage outlooks ruling out a V-shaped recovery."
+    "rationale": "Strong corporate earnings from BHEL and Canara Bank along with stock-specific rallies are balanced by concerns over elevated oil prices ($110 risk) and recent index volatility."
   },
   "stocks": {
     "RELIANCE": {
@@ -34,7 +34,7 @@
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No direct market-moving headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
