@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-10-15T14:11:49.145741+00:00",
+  "generated_at": "2026-10-16T13:18:35.867550+00:00",
   "market": {
     "sentiment": "neutral",
     "confidence": 5,
-    "rationale": "Global cues lean negative with Nasdaq sliding over AI debt concerns, and domestic sentiment is weighed down by a 20% plunge in Yes Bank. However, these are counterbalanced by solid Q2 bank profit growth and positive corporate actions like Tech Mahindra's bonus and dividend."
+    "rationale": "Market cues are mixed with individual mid/large-cap earnings showing strength alongside specific stock rallies, but offset by persistent domestic bond losses following aggressive RBI measures and mixed global cues."
   },
   "stocks": {
     "RELIANCE": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No stock-specific headlines available."
+      "sentiment": "bullish",
+      "confidence": 5,
+      "rationale": "Management is actively engaging Reliance's large workforce to drive participation and momentum for the upcoming Jio IPO."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No stock-specific headlines available."
+      "rationale": "Only cited generically among Friday's top movers without clear directional impact."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No stock-specific headlines available."
+      "rationale": "No specific headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No stock-specific headlines available."
+      "rationale": "No specific headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No stock-specific headlines available."
+      "rationale": "No specific headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No stock-specific headlines available."
+      "rationale": "No specific headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No stock-specific headlines available."
+      "rationale": "No specific headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No stock-specific headlines available."
+      "rationale": "No specific headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No stock-specific headlines available."
+      "rationale": "No specific headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No stock-specific headlines available."
+      "rationale": "No specific headlines available."
     }
   }
 }
