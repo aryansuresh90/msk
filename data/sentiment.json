@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-10-19T08:58:16.592954+00:00",
+  "generated_at": "2026-10-21T14:31:19.948371+00:00",
   "market": {
-    "sentiment": "bearish",
-    "confidence": 7,
-    "rationale": "Sensex crashed 950 points intraday driven by FPI outflows and a drag in banking stocks, alongside liquidity tightness indicated by banks tapping RBI cash auctions."
+    "sentiment": "neutral",
+    "confidence": 5,
+    "rationale": "Positive global cues from US markets and strong Q2 earnings from companies like IHCL and PC Jewellers are offset by surging domestic short-term yields prompting RBI to reject T-bill bids, alongside sharp selloffs in defence and select auto-ancillary stocks."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No company-specific headlines available in this run."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No company-specific headlines available in this run."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No company-specific headlines available in this run."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No company-specific headlines available in this run."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No company-specific headlines available in this run."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No company-specific headlines available in this run."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No company-specific headlines available in this run."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No company-specific headlines available in this run."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No company-specific headlines available in this run."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available."
+      "rationale": "No company-specific headlines available in this run."
     }
   }
 }
