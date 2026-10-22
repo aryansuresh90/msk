@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-10-22T08:40:25.880075+00:00",
+  "generated_at": "2026-10-22T14:33:05.901877+00:00",
   "market": {
-    "sentiment": "bearish",
+    "sentiment": "neutral",
     "confidence": 5,
-    "rationale": "News notes a weak market backdrop with rising crude oil prices fueled by West Asia tensions, alongside sharp declines in several prominent names like Adani Green and Swiggy despite a few isolated stock gains."
+    "rationale": "Global cues are cautious with US markets dipping and rising oil prices, while domestic cues are mixed with sideways trading balanced by positive corporate earnings previews and SEBI margin relief."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "HDFCBANK": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bearish",
+      "confidence": 6,
+      "rationale": "Shares declined 2% on heavy volumes, marking a third consecutive day of losses."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "INFY": {
-      "sentiment": "neutral",
-      "confidence": 0,
-      "rationale": "No headlines available."
+      "sentiment": "bullish",
+      "confidence": 5,
+      "rationale": "Q2 earnings preview indicates expected 10% YoY growth in PAT."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No headlines available."
+      "rationale": "No specific headlines available."
     }
   }
 }
