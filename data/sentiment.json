@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-10-21T14:31:19.948371+00:00",
+  "generated_at": "2026-10-22T08:40:25.880075+00:00",
   "market": {
-    "sentiment": "neutral",
+    "sentiment": "bearish",
     "confidence": 5,
-    "rationale": "Positive global cues from US markets and strong Q2 earnings from companies like IHCL and PC Jewellers are offset by surging domestic short-term yields prompting RBI to reject T-bill bids, alongside sharp selloffs in defence and select auto-ancillary stocks."
+    "rationale": "News notes a weak market backdrop with rising crude oil prices fueled by West Asia tensions, alongside sharp declines in several prominent names like Adani Green and Swiggy despite a few isolated stock gains."
   },
   "stocks": {
     "RELIANCE": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in this run."
+      "rationale": "No headlines available."
     },
     "TCS": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in this run."
+      "rationale": "No headlines available."
     },
     "HDFCBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in this run."
+      "rationale": "No headlines available."
     },
     "ICICIBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in this run."
+      "rationale": "No headlines available."
     },
     "INFY": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in this run."
+      "rationale": "No headlines available."
     },
     "SBIN": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in this run."
+      "rationale": "No headlines available."
     },
     "BHARTIARTL": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in this run."
+      "rationale": "No headlines available."
     },
     "ITC": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in this run."
+      "rationale": "No headlines available."
     },
     "LT": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in this run."
+      "rationale": "No headlines available."
     },
     "AXISBANK": {
       "sentiment": "neutral",
       "confidence": 0,
-      "rationale": "No company-specific headlines available in this run."
+      "rationale": "No headlines available."
     }
   }
 }
